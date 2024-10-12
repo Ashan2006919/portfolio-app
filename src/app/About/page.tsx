@@ -95,7 +95,7 @@ export default function Features() {
               &quot;Alongside my studies, I’m on a mission to gain hands-on
               experience through various IT-related projects. I am confident in
               my ability to achieve my goals and thrive as a successful
-              individual in today's fast-evolving world!&quot;
+              individual in today&#39;s fast-evolving world!&quot;
             </p>
           </motion.div>
         </div>

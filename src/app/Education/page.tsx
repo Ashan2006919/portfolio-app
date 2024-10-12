@@ -3,6 +3,7 @@
 import React from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import animationData2 from "@/public/assets/Animations/right-arrow.json";
+import Image from "next/image";
 
 const Education: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const Education: React.FC = () => {
             className="flex flex-col justify-start items-center gap-4"
           >
             {Array.from({ length: 3 }).map((_, imgIndex) => (
-              <img
+              <Image
                 key={imgIndex}
                 className="w-32 h-auto rounded-[5px] shadow"
                 src={`https://via.placeholder.com/128x${
@@ -37,7 +38,7 @@ const Education: React.FC = () => {
             Education :
           </h2>
           <span>
-            " I am currently pursuing my{" "}
+            &#34; I am currently pursuing my{" "}
             <span className="font-bold">Pearson HND in Data Analytics</span>,
             where I am developing skills in{" "}
             <span className="font-bold">statistical analysis</span>,{" "}
@@ -51,7 +52,7 @@ const Education: React.FC = () => {
             abilities. This academic journey has fueled my passion for{" "}
             <span className="font-bold">data science</span>, inspiring me to
             apply my knowledge to real-world projects and explore the impact of
-            data-driven decisions in solving complex problems. "
+            data-driven decisions in solving complex problems. &#34;
           </span>
 
           {/* Awards and Certificates Link */}

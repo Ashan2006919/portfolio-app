@@ -10,6 +10,8 @@ import {
 import { FaStar } from "react-icons/fa"; // Import star icon
 
 const FeedbackCard = ({ feedback }) => {
+  const [isFollowed, setIsFollowed] = React.useState(false); // Move useState here
+
   if (!feedback || typeof feedback !== "object") {
     return <p>No feedback available</p>;
   }
@@ -31,8 +33,6 @@ const FeedbackCard = ({ feedback }) => {
       />
     ));
   };
-
-  const [isFollowed, setIsFollowed] = React.useState(false);
 
   return (
     <Card className="max-w-[400px]">

@@ -13,14 +13,14 @@ export default function Model() {
 
   useEffect(() => {
     console.log(actions);
-    // @ts-expect-error
+    // @ts-expect-error: The "Experiment" action may not be present in some models.
     actions["Experiment"].play().paused = true;
   }, [actions]);
 
   useFrame(() => {
-    // @ts-expect-error
+    // @ts-expect-error: The "Experiment" action may not be defined at this point.
     actions["Experiment"].time =
-      // @ts-expect-error
+      // @ts-expect-error: getClip() method might return undefined if the action is not available.
       (actions["Experiment"].getClip().duration * scroll.offset) / 4;
   });
 

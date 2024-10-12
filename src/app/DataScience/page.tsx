@@ -28,34 +28,6 @@ const fadeFromRight = {
 };
 
 const DataScienceComponent = () => {
-  // Data Science specific cards data
-  const cardsData = [
-    {
-      tag: "Featured",
-      tagColor: "bg-purple-100 text-purple-800",
-      title: "The map of mathematics",
-      description:
-        "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
-      link: "your-link-here",
-    },
-    {
-      tag: "Popular",
-      tagColor: "bg-blue-100 text-blue-800",
-      title: "Data Science for Everyone",
-      description:
-        "Aliquam ut euismod condimentum elementum ultricies volutpat sit non.",
-      link: "your-link-here",
-    },
-    {
-      tag: "New",
-      tagColor: "bg-green-100 text-green-800",
-      title: "Advanced Machine Learning",
-      description:
-        "Molestie integer eu arcu, mauris bibendum rhoncus imperdiet dui.",
-      link: "your-link-here",
-    },
-  ];
-
   return (
     <div className="h-auto sm:h-[711px] p-5 md:p-20 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 lg:mt-20 sm:-mt-32 sm:-mb-20">
       {/* Left Section (Text and Data) */}

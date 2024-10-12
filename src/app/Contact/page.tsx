@@ -57,13 +57,15 @@ export default function Contact() {
       { threshold: 0.1 } // Trigger when at least 10% of the component is visible
     );
 
-    if (ref.current) {
-      observer.observe(ref.current); // Observe the component
+    const currentRef = ref.current; // Store the current ref in a variable
+
+    if (currentRef) {
+      observer.observe(currentRef); // Observe the component
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current); // Cleanup observer on unmount
+      if (currentRef) {
+        observer.unobserve(currentRef); // Cleanup observer on unmount
       }
     };
   }, []);

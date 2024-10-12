@@ -12,15 +12,21 @@ import DAProjects from "@/app/DAProjects/page"; // Import DAProjects component
 import WebProjects from "@/app/WebProjects/page"; // Import WebProjects component
 import Spline from "@splinetool/react-spline"; // Import Spline
 
+interface FeedbackType {
+  _id: string;
+  name: string;
+  message: string;
+}
+
 export default function MainPage() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
-  const [feedbackList, setFeedbackList] = useState<any[]>([]); // State for feedback list
+  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>([]); // State for feedback list
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev); // Toggle modal state
   };
 
-  const addFeedback = (newFeedback: any) => {
+  const addFeedback = (newFeedback: FeedbackType) => {
     setFeedbackList((prev) => [...prev, newFeedback]); // Add new feedback
   };
 
@@ -105,7 +111,10 @@ export default function MainPage() {
           <Contact />
         </section>
 
-        <section id="footer" className="scroll-snap-start bg-transparent">
+        <section
+          id="footer"
+          className="min-h-screen scroll-snap-start bg-transparent"
+        >
           <Footer />
         </section>
       </div>
