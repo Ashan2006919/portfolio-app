@@ -7,7 +7,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import animationData1 from "@/public/assets/Animations/success.json";
 import animationData2 from "@/public/assets/Animations/right-arrow.json";
 import Image from "next/image";
-import Python from "@/public/small-icons/Python.svg";
+import Python from "@/public/small-Icons/Python.svg";
 import MySQL from "@/public/small-icons/MySQL.svg";
 import powerBi from "@/public/small-icons/power-bi.svg";
 import Matplotlib from "@/public/small-icons/Matplotlib.svg";
