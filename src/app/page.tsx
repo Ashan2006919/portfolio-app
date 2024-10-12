@@ -9,7 +9,6 @@ import Contact from "@/app/Contact/page";
 import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
-import Spline from "@splinetool/react-spline";
 
 export default function MainPage() {
   return (
@@ -20,11 +19,6 @@ export default function MainPage() {
           id="home"
           className="min-h-screen scroll-snap-start bg-transparent relative overflow-hidden"
         >
-          <Spline
-            scene="https://prod.spline.design/KqUAfsmO3JW7ZsUW/scene.splinecode"
-            className="absolute top-0 left-0 w-full h-full z-0"
-          />
-
           <div className="relative z-10">
             <Home />
           </div>
@@ -42,11 +36,6 @@ export default function MainPage() {
           id="datascience"
           className="min-h-screen scroll-snap-start bg-transparent relative"
         >
-          <Spline
-            scene="https://prod.spline.design/yQYRvO8QdXn4pFND/scene.splinecode"
-            className="absolute top-0 left-0 w-full h-full z-0"
-          />
-
           <div className="relative z-10">
             <DataScience />
           </div>
@@ -61,10 +50,6 @@ export default function MainPage() {
           id="webdevelopment"
           className="min-h-screen scroll-snap-start bg-transparent relative"
         >
-          <Spline
-            scene="https://prod.spline.design/yQYRvO8QdXn4pFND/scene.splinecode"
-            className="absolute top-0 left-0 w-full h-full z-0"
-          />
           <div className="relative z-10">
             <WebDevelopment />
           </div>
