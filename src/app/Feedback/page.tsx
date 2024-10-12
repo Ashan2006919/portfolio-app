@@ -38,7 +38,7 @@ const Feedback: React.FC<FeedbackProps> = ({
   addFeedback,
 }) => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   // Optional: If you still want to fetch feedbacks when the component mounts

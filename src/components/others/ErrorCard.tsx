@@ -13,8 +13,8 @@ interface LottieAnimationData {
   h: number; // height
   nm: string; // name
   ddd: number; // 3D flag
-  assets: any[]; // assets used in the animation
-  layers: any[]; // layers of the animation
+  assets: unknown[]; // Updated type to unknown[]
+  layers: unknown[]; // Updated type to unknown[]
   // Add more properties as needed based on your animation data
 }
 
