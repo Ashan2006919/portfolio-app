@@ -1,16 +1,16 @@
-"use client";
+"use client"; // Ensures this component is treated as a client component
 
-import { useState } from "react"; // Import useState to manage modal state
-import Home from "@/app/Home/page"; // Import Home component
-import About from "@/app/About/page"; // Import About component
-import DataScience from "@/app/DataScience/page"; // Import DataScience component
-import WebDevelopment from "@/app/WebDevelopment/page"; // Import WebDevelopment component
-import Feedback from "@/app/Feedback/page"; // Import Feedback component
-import Contact from "@/app/Contact/page"; // Import Contact component
-import Footer from "@/app/Footer/page"; // Import Footer component
-import DAProjects from "@/app/DAProjects/page"; // Import DAProjects component
-import WebProjects from "@/app/WebProjects/page"; // Import WebProjects component
-import Spline from "@splinetool/react-spline"; // Import Spline
+import { useState } from "react";
+import Home from "@/app/Home/page";
+import About from "@/app/About/page";
+import DataScience from "@/app/DataScience/page";
+import WebDevelopment from "@/app/WebDevelopment/page";
+import Feedback from "@/app/Feedback/page"; // Make sure Feedback component is imported correctly
+import Contact from "@/app/Contact/page";
+import Footer from "@/app/Footer/page";
+import DAProjects from "@/app/DAProjects/page";
+import WebProjects from "@/app/WebProjects/page";
+import Spline from "@splinetool/react-spline";
 
 interface FeedbackType {
   _id: string;
@@ -19,22 +19,19 @@ interface FeedbackType {
 }
 
 export default function MainPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
-  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>([]); // State for feedback list
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>([]);
 
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev); // Toggle modal state
-  };
+  const toggleModal = () => setIsModalOpen((prev) => !prev);
 
   const addFeedback = (newFeedback: FeedbackType) => {
-    setFeedbackList((prev) => [...prev, newFeedback]); // Add new feedback
+    setFeedbackList((prev) => [...prev, newFeedback]);
   };
 
   return (
     <main className="relative">
-      {/* Content sections */}
       <div className="relative z-10 scroll-snap-container">
-        {/* Home Section with Spline Animation */}
+        {/* Home Section */}
         <section
           id="home"
           className="min-h-screen scroll-snap-start bg-transparent relative overflow-hidden"
@@ -55,7 +52,7 @@ export default function MainPage() {
           <About />
         </section>
 
-        {/* DataScience Section with Spline Background */}
+        {/* DataScience Section */}
         <section
           id="datascience"
           className="min-h-screen scroll-snap-start bg-transparent relative"
@@ -73,7 +70,7 @@ export default function MainPage() {
           <DAProjects />
         </section>
 
-        {/* WebDevelopment Section with Spline Background */}
+        {/* WebDevelopment Section */}
         <section
           id="webdevelopment"
           className="min-h-screen scroll-snap-start bg-transparent relative"
@@ -97,10 +94,10 @@ export default function MainPage() {
           className="min-h-screen scroll-snap-start bg-transparent"
         >
           <Feedback
-            feedbacks={feedbackList} // Pass the feedback list
-            isModalOpen={isModalOpen} // Pass modal state
-            toggleModal={toggleModal} // Pass modal toggle function
-            addFeedback={addFeedback} // Pass feedback adding function
+            feedbacks={feedbackList}
+            isModalOpen={isModalOpen}
+            toggleModal={toggleModal}
+            addFeedback={addFeedback}
           />
         </section>
 
