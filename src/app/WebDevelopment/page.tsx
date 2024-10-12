@@ -7,15 +7,15 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import animationData1 from "@/public/assets/Animations/success.json";
 import animationData2 from "@/public/assets/Animations/right-arrow.json";
 import Image from "next/image";
-import HTML5 from "@/public/Small-icons/HTML5.svg";
-import CSS3 from "@/public/Small-icons/CSS3.svg";
-import ReactIcon from "@/public/Small-icons/React.svg";
-import NodeJS from "@/public/Small-icons/Node.js.svg";
-import Git from "@/public/Small-icons/Git.svg";
-import GitHub from "@/public/Small-icons/GitHub.svg";
-import Tailwind from "@/public/Small-icons/Tailwind CSS.svg";
-import Bootstrap from "@/public/Small-icons/Bootstrap.svg";
-import PHP from "@/public/Small-icons/PHP.svg";
+import HTML5 from "@/public/Small-Icons/HTML5.svg";
+import CSS3 from "@/public/Small-Icons/CSS3.svg";
+import ReactIcon from "@/public/Small-Icons/React.svg";
+import NodeJS from "@/public/Small-Icons/Node.js.svg";
+import Git from "@/public/Small-Icons/Git.svg";
+import GitHub from "@/public/Small-Icons/GitHub.svg";
+import Tailwind from "@/public/Small-Icons/Tailwind CSS.svg";
+import Bootstrap from "@/public/Small-Icons/Bootstrap.svg";
+import PHP from "@/public/Small-Icons/PHP.svg";
 
 // Animation variants
 const fadeFromLeft = {

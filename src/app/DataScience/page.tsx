@@ -8,13 +8,13 @@ import animationData1 from "@/public/assets/Animations/success.json";
 import animationData2 from "@/public/assets/Animations/right-arrow.json";
 import Image from "next/image";
 import Python from "@/public/Small-Icons/Python.svg";
-import MySQL from "@/public/Small-icons/MySQL.svg";
-import powerBi from "@/public/Small-icons/power-bi.svg";
-import Matplotlib from "@/public/Small-icons/Matplotlib.svg";
-import NumPy from "@/public/Small-icons/NumPy.svg";
-import scikitLearn from "@/public/Small-icons/scikit-learn.svg";
-import Pandas from "@/public/Small-icons/Pandas.svg";
-import Jupyter from "@/public/Small-icons/Jupyter.svg";
+import MySQL from "@/public/Small-Icons/MySQL.svg";
+import powerBi from "@/public/Small-Icons/power-bi.svg";
+import Matplotlib from "@/public/Small-Icons/Matplotlib.svg";
+import NumPy from "@/public/Small-Icons/NumPy.svg";
+import scikitLearn from "@/public/Small-Icons/scikit-learn.svg";
+import Pandas from "@/public/Small-Icons/Pandas.svg";
+import Jupyter from "@/public/Small-Icons/Jupyter.svg";
 
 // Animation variants
 const fadeFromLeft = {
