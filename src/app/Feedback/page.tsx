@@ -1,4 +1,4 @@
-"use client"; // Mark this as a Client Component
+"use client"; // Ensures it's treated as a client component
 
 import { useEffect, useState } from "react";
 import FeedbackCard from "@/components/others/FeedbackCard";
@@ -13,26 +13,26 @@ import {
 } from "@/components/ui/carousel";
 import WriteFeedback from "@/components/others/WriteFeedback";
 import { Button } from "@nextui-org/react";
-import animationData1 from "@/public/assets/Animations/error.json";
+import axios from "axios";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import axios from "axios";
+import animationData1 from "@/public/assets/Animations/error.json";
 
-interface Feedback {
+interface FeedbackType {
   _id: string;
   name: string;
   message: string;
 }
 
 interface FeedbackProps {
-  feedbacks: Feedback[]; // Updated feedbacks type
+  feedbacks: FeedbackType[];
   isModalOpen: boolean;
   toggleModal: () => void;
-  addFeedback: (feedback: Feedback) => void;
+  addFeedback: (feedback: FeedbackType) => void;
 }
 
 const Feedback: React.FC<FeedbackProps> = ({
-  feedbacks, // Get feedbacks from props
+  feedbacks,
   isModalOpen,
   toggleModal,
   addFeedback,
@@ -41,19 +41,20 @@ const Feedback: React.FC<FeedbackProps> = ({
   const [error, setError] = useState<string | null>(null);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
-  // Fetch feedbacks or handle any additional logic
   useEffect(() => {
+    // Simulate loading feedbacks
     if (feedbacks.length === 0) {
       setLoading(true);
-      // Optionally fetch feedbacks here
       setTimeout(() => setLoading(false), 1000); // Simulating loading state
+    } else {
+      setLoading(false); // Set loading to false when feedbacks are available
     }
   }, [feedbacks]);
 
   const handleDeleteAllFeedback = async () => {
     try {
       await axios.delete("http://localhost:3000/reviews");
-      // Optionally trigger a re-fetch or notify parent to update feedbacks
+      // Optionally, trigger a re-fetch or notify parent to update feedbacks
     } catch (error) {
       console.error("Error deleting all feedback:", error);
       setError("Failed to delete feedback.");
@@ -63,11 +64,9 @@ const Feedback: React.FC<FeedbackProps> = ({
   const handleRetry = () => {
     setError(null);
     setLoading(true);
-    // Add retry logic here
     setTimeout(() => setLoading(false), 1000); // Simulating retry
   };
 
-  // Animation variants for the entire container
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -102,12 +101,12 @@ const Feedback: React.FC<FeedbackProps> = ({
           ) : error ? (
             <div className="flex justify-center w-full">
               <ErrorCard
-                errorMessage={error}
+                errorMessage={error ?? ""}
                 animationData1={animationData1}
                 onRetry={handleRetry}
               />
             </div>
-          ) : (
+          ) : feedbacks.length > 0 ? (
             feedbacks.map((feedback) => (
               <CarouselItem
                 key={feedback._id}
@@ -118,6 +117,14 @@ const Feedback: React.FC<FeedbackProps> = ({
                 </div>
               </CarouselItem>
             ))
+          ) : (
+            <div className="flex justify-center w-full">
+              <ErrorCard
+                errorMessage={error ?? ""}
+                animationData1={animationData1}
+                onRetry={handleRetry}
+              />
+            </div>
           )}
         </CarouselContent>
         <CarouselPrevious />

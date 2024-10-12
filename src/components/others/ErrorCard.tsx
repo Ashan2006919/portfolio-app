@@ -1,3 +1,5 @@
+"use client"; // Ensures this component is treated as a client component
+
 import { Card, CardFooter, Button } from "@nextui-org/react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Image from "next/image"; // Import Image from next/image, not from @nextui-org/react
