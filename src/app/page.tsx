@@ -95,12 +95,7 @@ export default function MainPage() {
           id="feedback"
           className="min-h-screen scroll-snap-start bg-transparent"
         >
-          <Feedback
-            feedbacks={feedbackList}
-            isModalOpen={isModalOpen}
-            toggleModal={toggleModal}
-            addFeedback={addFeedback}
-          />
+          <Feedback />
         </section>
 
         <section

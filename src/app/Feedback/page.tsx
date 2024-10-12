@@ -1,9 +1,9 @@
-"use client"; // Ensures it's treated as a client component
+"use client"; // This ensures the component is treated as a client component
 
-import { useEffect, useState } from "react";
-import FeedbackCard from "@/components/others/FeedbackCard";
-import FeedbackSkeleton from "@/components/others/FeedbackSkeleton";
-import ErrorCard from "@/components/others/ErrorCard";
+import React, { useEffect, useState } from "react";
+import FeedbackCard from "@/components/others/FeedbackCard"; // Adjusted import path as needed
+import FeedbackSkeleton from "@/components/others/FeedbackSkeleton"; // Adjusted import path as needed
+import ErrorCard from "@/components/others/ErrorCard"; // Adjusted import path as needed
 import {
   Carousel,
   CarouselContent,
@@ -12,59 +12,71 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import WriteFeedback from "@/components/others/WriteFeedback";
-import { Button } from "@nextui-org/react";
 import axios from "axios";
+import { Button } from "@nextui-org/react";
+import animationData1 from "@/public/assets/Animations/error.json"; // Adjusted import path as needed
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import animationData1 from "@/public/assets/Animations/error.json";
 
-interface FeedbackType {
-  _id: string;
-  name: string;
-  message: string;
-}
-
-interface FeedbackProps {
-  feedbacks: FeedbackType[];
-  isModalOpen: boolean;
-  toggleModal: () => void;
-  addFeedback: (feedback: FeedbackType) => void;
-}
-
-const Feedback: React.FC<FeedbackProps> = ({
-  feedbacks,
-  isModalOpen,
-  toggleModal,
-  addFeedback,
-}) => {
-  const [loading, setLoading] = useState(true);
+const Feedback: React.FC = () => {
+  const [feedbacks, setFeedbacks] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
-  useEffect(() => {
-    // Simulate loading feedbacks
-    if (feedbacks.length === 0) {
-      setLoading(true);
-      setTimeout(() => setLoading(false), 1000); // Simulating loading state
-    } else {
-      setLoading(false); // Set loading to false when feedbacks are available
+  // Fetch feedbacks from the server
+  const fetchFeedbacks = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("http://localhost:3000/reviews");
+      setFeedbacks(response.data);
+      setError(null);
+    } catch (error) {
+      setError("An error occurred while fetching feedback.");
+    } finally {
+      setLoading(false);
     }
-  }, [feedbacks]);
+  };
 
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
+  // Function to delete all feedback
   const handleDeleteAllFeedback = async () => {
     try {
       await axios.delete("http://localhost:3000/reviews");
-      // Optionally, trigger a re-fetch or notify parent to update feedbacks
+      setFeedbacks([]);
+      console.log("All feedback deleted");
     } catch (error) {
       console.error("Error deleting all feedback:", error);
-      setError("Failed to delete feedback.");
+    }
+  };
+
+  // Function to handle adding new feedback
+  const addFeedback = async (newFeedback: any) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/reviews",
+        newFeedback
+      );
+      setFeedbacks((prev) => [
+        ...prev,
+        { ...newFeedback, id: response.data.id },
+      ]);
+      toggleModal();
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
     }
   };
 
   const handleRetry = () => {
-    setError(null);
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1000); // Simulating retry
+    fetchFeedbacks();
   };
 
   const containerVariants = {
@@ -84,7 +96,7 @@ const Feedback: React.FC<FeedbackProps> = ({
         Feedback of Others:
       </h2>
       <p className="font-light lg:text-lg">
-        Here&apos;s what those who have worked with me are saying about their
+        Here's what those who have worked with me are saying about their
         experience:
       </p>
 
@@ -101,12 +113,12 @@ const Feedback: React.FC<FeedbackProps> = ({
           ) : error ? (
             <div className="flex justify-center w-full">
               <ErrorCard
-                errorMessage={error ?? ""}
+                errorMessage={error}
                 animationData1={animationData1}
                 onRetry={handleRetry}
               />
             </div>
-          ) : feedbacks.length > 0 ? (
+          ) : (
             feedbacks.map((feedback) => (
               <CarouselItem
                 key={feedback._id}
@@ -117,14 +129,6 @@ const Feedback: React.FC<FeedbackProps> = ({
                 </div>
               </CarouselItem>
             ))
-          ) : (
-            <div className="flex justify-center w-full">
-              <ErrorCard
-                errorMessage={error ?? ""}
-                animationData1={animationData1}
-                onRetry={handleRetry}
-              />
-            </div>
           )}
         </CarouselContent>
         <CarouselPrevious />
@@ -133,17 +137,19 @@ const Feedback: React.FC<FeedbackProps> = ({
 
       <div className="flex space-x-4">
         <Button
-          className="mt-5 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          color="primary"
+          variant="shadow"
+          className="mt-5 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 font-semibold"
           onClick={toggleModal}
         >
-          Add Feedback
+          Write a Review
         </Button>
-        <Button
+        <button
           className="mt-5 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
           onClick={handleDeleteAllFeedback}
         >
           Delete All Feedback
-        </Button>
+        </button>
       </div>
 
       <WriteFeedback
