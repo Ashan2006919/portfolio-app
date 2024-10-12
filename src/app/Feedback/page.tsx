@@ -25,7 +25,7 @@ interface Feedback {
 }
 
 interface FeedbackProps {
-  feedbacks: Feedback[]; // Include feedbacks prop
+  feedbacks: Feedback[]; // Updated feedbacks type
   isModalOpen: boolean;
   toggleModal: () => void;
   addFeedback: (feedback: Feedback) => void;
@@ -38,29 +38,33 @@ const Feedback: React.FC<FeedbackProps> = ({
   addFeedback,
 }) => {
   const [loading, setLoading] = useState(true);
-  const [error] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
-  // Optional: If you still want to fetch feedbacks when the component mounts
+  // Fetch feedbacks or handle any additional logic
   useEffect(() => {
     if (feedbacks.length === 0) {
       setLoading(true);
       // Optionally fetch feedbacks here
-      setLoading(false);
+      setTimeout(() => setLoading(false), 1000); // Simulating loading state
     }
   }, [feedbacks]);
 
   const handleDeleteAllFeedback = async () => {
     try {
       await axios.delete("http://localhost:3000/reviews");
-      // You can trigger a prop function to notify parent for re-fetching or updating feedbacks
+      // Optionally trigger a re-fetch or notify parent to update feedbacks
     } catch (error) {
       console.error("Error deleting all feedback:", error);
+      setError("Failed to delete feedback.");
     }
   };
 
   const handleRetry = () => {
-    // Retry logic if needed
+    setError(null);
+    setLoading(true);
+    // Add retry logic here
+    setTimeout(() => setLoading(false), 1000); // Simulating retry
   };
 
   // Animation variants for the entire container
