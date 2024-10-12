@@ -16,6 +16,7 @@ import { Button } from "@nextui-org/react";
 import animationData1 from "@/public/assets/Animations/error.json";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
 interface Feedback {
   _id: string;
