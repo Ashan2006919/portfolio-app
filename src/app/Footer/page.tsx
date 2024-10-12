@@ -2,14 +2,13 @@
 
 import React from "react";
 import {
-  FaMapMarkerAlt,
-  FaPhone,
   FaEnvelope,
   FaFacebook,
   FaInstagram,
   FaGithub,
   FaTiktok,
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -19,7 +18,13 @@ export default function Footer() {
       <footer className="bg-white py-3 dark:bg-gray-900">
         <div className="w-full mx-auto max-w-screen-xl p-4 flex flex-col items-center">
           <a href="#" className="flex items-center mb-4">
-            <img src="/path-to-your-logo.png" className="h-8 mr-3" alt="Logo" />
+            <Image
+              src="/path-to-your-logo.png"
+              className="h-8 mr-3"
+              alt="Logo"
+              width={32}
+              height={32}
+            />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Ashan Niwantha
             </span>

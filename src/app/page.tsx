@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react"; // Import useState to manage modal state
 import Home from "@/app/Home/page"; // Import Home component
 import About from "@/app/About/page"; // Import About component
 import DataScience from "@/app/DataScience/page"; // Import DataScience component
@@ -7,10 +10,20 @@ import Contact from "@/app/Contact/page"; // Import Contact component
 import Footer from "@/app/Footer/page"; // Import Footer component
 import DAProjects from "@/app/DAProjects/page"; // Import DAProjects component
 import WebProjects from "@/app/WebProjects/page"; // Import WebProjects component
-import Test from "@/app/Test/page"; // Import Test component
 import Spline from "@splinetool/react-spline"; // Import Spline
 
 export default function MainPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
+  const [feedbackList, setFeedbackList] = useState<any[]>([]); // State for feedback list
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev); // Toggle modal state
+  };
+
+  const addFeedback = (newFeedback: any) => {
+    setFeedbackList((prev) => [...prev, newFeedback]); // Add new feedback
+  };
+
   return (
     <main className="relative">
       {/* Content sections */}
@@ -71,18 +84,27 @@ export default function MainPage() {
         <section id="webprojects" className="scroll-snap-start bg-transparent">
           <WebProjects />
         </section>
+
+        {/* Feedback Section */}
         <section
           id="feedback"
           className="min-h-screen scroll-snap-start bg-transparent"
         >
-          <Feedback feedbacks={[]} />
+          <Feedback
+            feedbacks={feedbackList} // Pass the feedback list
+            isModalOpen={isModalOpen} // Pass modal state
+            toggleModal={toggleModal} // Pass modal toggle function
+            addFeedback={addFeedback} // Pass feedback adding function
+          />
         </section>
+
         <section
           id="contact"
           className="min-h-screen scroll-snap-start bg-transparent"
         >
           <Contact />
         </section>
+
         <section id="footer" className="scroll-snap-start bg-transparent">
           <Footer />
         </section>

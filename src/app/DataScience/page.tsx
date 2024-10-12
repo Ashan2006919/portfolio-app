@@ -28,8 +28,7 @@ const fadeFromRight = {
 };
 
 const DataScienceComponent = () => {
-  // Data Science specific image and cards data
-  const imageSrc = "./illustrations/13297951_5187967.jpg";
+  // Data Science specific cards data
   const cardsData = [
     {
       tag: "Featured",

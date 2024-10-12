@@ -1,11 +1,7 @@
 "use client"; // Add this line at the top
 
 import React from "react";
-import { FaGithub, FaDownload } from "react-icons/fa";
-import { FaProjectDiagram } from "react-icons/fa"; // Importing a project icon
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
-import AnimatedShinyText from "@/components/ui/animated-shiny-text";
+import { FaDownload } from "react-icons/fa";
 import ShineBorder from "@/components/ui/shine-border";
 import ViewProject from "@/components/others/ViewProject";
 import { motion } from "framer-motion";

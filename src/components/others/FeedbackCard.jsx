@@ -43,6 +43,7 @@ const FeedbackCard = ({ feedback }) => {
             radius="full"
             size="md"
             src={image || "https://nextui.org/avatars/avatar-1.png"}
+            alt={job}
           />
           <div className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600">
@@ -54,6 +55,14 @@ const FeedbackCard = ({ feedback }) => {
           </div>
         </div>
         <div className="flex items-center gap-1">{renderStars(rating)}</div>
+        <button
+          onClick={() => setIsFollowed(!isFollowed)}
+          className={`ml-auto ${
+            isFollowed ? "text-blue-500" : "text-gray-500"
+          }`}
+        >
+          {isFollowed ? "Unfollow" : "Follow"}
+        </button>
       </CardHeader>
       <CardBody className="px-3 py-0 text-small text-default-400">
         <div

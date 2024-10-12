@@ -4,11 +4,6 @@ import { motion, useInView } from "framer-motion"; // Import useInView from fram
 import { useRef } from "react"; // Import useRef to create a ref for the container
 import { ProjectCard } from "../DAProjects/ProjectCard"; // Adjust the import based on your file structure
 import projects from "../DAProjects/ProjectData"; // Import the project data
-import dynamic from "next/dynamic";
-
-const Scene = dynamic(() => import("@/components/others/DAModel"), {
-  ssr: false,
-});
 
 const container = {
   hidden: { opacity: 0, scale: 0.8 }, // Start slightly smaller and transparent

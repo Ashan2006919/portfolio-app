@@ -13,13 +13,14 @@ export default function Contact() {
     email: "",
     phone: "",
     message: "",
-    rating: 0, // For star rating (if applicable)
   });
 
   const [isVisible, setIsVisible] = useState(false); // State to control visibility
-  const ref = useRef(null); // Ref to the component
+  const ref = useRef<HTMLDivElement | null>(null); // Ref to the component
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -27,9 +28,10 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData); // This will handle the form submission logic.
+    // Add further submission logic here (e.g., API call)
   };
 
   // Animation variants for the contact information and form

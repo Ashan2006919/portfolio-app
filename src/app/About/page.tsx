@@ -3,7 +3,7 @@
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ShineBorder from "@/components/ui/shine-border";
-import Image from "next/image";
+import Image from "next/image"; // Ensure to import Image from Next.js
 import MyImage from "@/public/My photos/IMG_0145.jpg";
 
 export default function Features() {
@@ -41,6 +41,8 @@ export default function Features() {
                 className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" // Your original image styling
                 src={MyImage}
                 alt="feature image 2"
+                width={500} // Specify width
+                height={300} // Specify height
               />
             </ShineBorder>
           </motion.div>
@@ -57,10 +59,10 @@ export default function Features() {
               About Me:
             </h2>
             <p className="mb-8 font-light lg:text-xl">
-              "My name is Ashan Niwantha, a student from Sri Lanka with a dream
-              of becoming a Data Scientist with innovative thinking. I am
+              &quot;My name is Ashan Niwantha, a student from Sri Lanka with a
+              dream of becoming a Data Scientist with innovative thinking. I am
               currently pursuing my HNDs in Data Analytics and completing my
-              A-Levels in the Science stream."
+              A-Levels in the Science stream.&quot;
             </p>
             {/* List */}
             <ul className="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
@@ -90,10 +92,10 @@ export default function Features() {
               </li>
             </ul>
             <p className="font-light lg:text-xl">
-              "Alongside my studies, I’m on a mission to gain hands-on
+              &quot;Alongside my studies, I’m on a mission to gain hands-on
               experience through various IT-related projects. I am confident in
               my ability to achieve my goals and thrive as a successful
-              individual in today's fast-evolving world!"
+              individual in today's fast-evolving world!&quot;
             </p>
           </motion.div>
         </div>

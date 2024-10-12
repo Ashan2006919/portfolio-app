@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardFooter, Image, Button } from "@nextui-org/react";
 
 export default function Test() {
   return (
@@ -110,7 +103,7 @@ export default function Test() {
             <div className="flex flex-col">
               <p className="text-tiny text-white/60">Breathing App</p>
               <p className="text-tiny text-white/60">
-                Get a good night's sleep.
+                Get a good night&#39;s sleep.
               </p>
             </div>
           </div>

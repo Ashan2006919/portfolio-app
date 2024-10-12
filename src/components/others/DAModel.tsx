@@ -1,28 +1,26 @@
-"use client"; // Add this line at the top
-
-import { useAnimations, useGLTF, useScroll } from "@react-three/drei";
+import React, { useRef, useEffect } from "react";
+import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
 import { Group } from "three";
 
 useGLTF.preload("/robot.glb");
 
 export default function Model() {
   const group = useRef<Group>(null);
-  const { nodes, materials, animations, scene } = useGLTF("/robot.glb");
-  const { actions, clips } = useAnimations(animations, scene);
+  const { animations, scene } = useGLTF("/robot.glb");
+  const { actions } = useAnimations(animations, scene);
   const scroll = useScroll();
 
   useEffect(() => {
     console.log(actions);
-    //@ts-ignore
+    // @ts-expect-error
     actions["Experiment"].play().paused = true;
   }, [actions]);
 
   useFrame(() => {
-    //@ts-ignore
+    // @ts-expect-error
     actions["Experiment"].time =
-      //@ts-ignore
+      // @ts-expect-error
       (actions["Experiment"].getClip().duration * scroll.offset) / 4;
   });
 

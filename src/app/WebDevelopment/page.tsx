@@ -30,32 +30,6 @@ const fadeFromRight = {
 
 export default function WebDevelopment() {
   // Web Development specific image and cards data
-  const imageSrc = "./illustrations/18840617_6042470.jpg";
-  const cardsData = [
-    {
-      tag: "Trending",
-      tagColor: "bg-orange-100 text-orange-800",
-      title: "React Hooks Deep Dive",
-      description: "Learn advanced concepts of React and Hooks.",
-      link: "your-link-here",
-    },
-    {
-      tag: "Recommended",
-      tagColor: "bg-red-100 text-red-800",
-      title: "Mastering CSS Grid",
-      description:
-        "Become proficient with modern layout techniques using CSS Grid.",
-      link: "your-link-here",
-    },
-    {
-      tag: "New",
-      tagColor: "bg-yellow-100 text-yellow-800",
-      title: "Web Accessibility 101",
-      description: "Build accessible websites that cater to everyone.",
-      link: "your-link-here",
-    },
-  ];
-
   return (
     <div className="h-auto sm:h-[711px] p-5 md:p-20 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 lg:mt-20 sm:mt-10 md:pt-36 sm:-mb-16">
       {/* Left Section (Text and Data) */}

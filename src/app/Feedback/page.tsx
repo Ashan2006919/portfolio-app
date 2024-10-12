@@ -25,13 +25,20 @@ interface Feedback {
 
 interface FeedbackProps {
   feedbacks: Feedback[];
+  isModalOpen: boolean;
+  toggleModal: () => void;
+  addFeedback: (feedback: string) => void;
 }
 
-const Feedback: React.FC<FeedbackProps> = ({ feedbacks }) => {
+const Feedback: React.FC<FeedbackProps> = ({
+  feedbacks,
+  isModalOpen,
+  toggleModal,
+  addFeedback,
+}) => {
   const [feedbackList, setFeedbackList] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   const fetchFeedbacks = async () => {
@@ -51,32 +58,12 @@ const Feedback: React.FC<FeedbackProps> = ({ feedbacks }) => {
     fetchFeedbacks();
   }, []);
 
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
-
   const handleDeleteAllFeedback = async () => {
     try {
       await axios.delete("http://localhost:3000/reviews");
       setFeedbackList([]);
     } catch (error) {
       console.error("Error deleting all feedback:", error);
-    }
-  };
-
-  const addFeedback = async (newFeedback: any) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/reviews",
-        newFeedback
-      );
-      setFeedbackList((prev) => [
-        ...prev,
-        { ...newFeedback, id: response.data.id },
-      ]);
-      toggleModal();
-    } catch (error) {
-      console.error("Error submitting feedback:", error);
     }
   };
 
@@ -143,12 +130,10 @@ const Feedback: React.FC<FeedbackProps> = ({ feedbacks }) => {
 
       <div className="flex space-x-4">
         <Button
-          color="primary"
-          variant="shadow"
-          className="mt-5 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 font-semibold"
+          className="mt-5 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
           onClick={toggleModal}
         >
-          Write a Review
+          Add Feedback
         </Button>
         <Button
           className="mt-5 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
