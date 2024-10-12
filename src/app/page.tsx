@@ -19,15 +19,6 @@ interface FeedbackType {
 }
 
 export default function MainPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [feedbackList, setFeedbackList] = useState<FeedbackType[]>([]);
-
-  const toggleModal = () => setIsModalOpen((prev) => !prev);
-
-  const addFeedback = (newFeedback: FeedbackType) => {
-    setFeedbackList((prev) => [...prev, newFeedback]);
-  };
-
   return (
     <main className="relative">
       <div className="relative z-10 scroll-snap-container">

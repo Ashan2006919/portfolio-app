@@ -18,8 +18,18 @@ import animationData1 from "@/public/assets/Animations/error.json"; // Adjusted 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+// Define a TypeScript interface for the feedback structure
+interface Feedback {
+  _id: string; // Adjust based on your backend response
+  comment: string; // Adjust based on your feedback fields
+  name: string; // Adjust based on your feedback fields
+  job: string; // Adjust based on your feedback fields
+  image: string; // Adjust based on your feedback fields
+  rating: number; // Adjust based on your feedback fields
+}
+
 const Feedback: React.FC = () => {
-  const [feedbacks, setFeedbacks] = useState<any[]>([]);
+  const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -59,7 +69,7 @@ const Feedback: React.FC = () => {
   };
 
   // Function to handle adding new feedback
-  const addFeedback = async (newFeedback: any) => {
+  const addFeedback = async (newFeedback: Feedback) => {
     try {
       const response = await axios.post(
         "http://localhost:3000/reviews",
@@ -67,7 +77,7 @@ const Feedback: React.FC = () => {
       );
       setFeedbacks((prev) => [
         ...prev,
-        { ...newFeedback, id: response.data.id },
+        { ...newFeedback, _id: response.data.id },
       ]);
       toggleModal();
     } catch (error) {
