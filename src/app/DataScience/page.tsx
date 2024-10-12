@@ -7,14 +7,14 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import animationData1 from "@/public/assets/Animations/success.json";
 import animationData2 from "@/public/assets/Animations/right-arrow.json";
 import Image from "next/image";
-import Python from "@/public/small-Icons/Python.svg";
-import MySQL from "@/public/small-icons/MySQL.svg";
-import powerBi from "@/public/small-icons/power-bi.svg";
-import Matplotlib from "@/public/small-icons/Matplotlib.svg";
-import NumPy from "@/public/small-icons/NumPy.svg";
-import scikitLearn from "@/public/small-icons/scikit-learn.svg";
-import Pandas from "@/public/small-icons/Pandas.svg";
-import Jupyter from "@/public/small-icons/Jupyter.svg";
+import Python from "@/public/Small-Icons/Python.svg";
+import MySQL from "@/public/Small-icons/MySQL.svg";
+import powerBi from "@/public/Small-icons/power-bi.svg";
+import Matplotlib from "@/public/Small-icons/Matplotlib.svg";
+import NumPy from "@/public/Small-icons/NumPy.svg";
+import scikitLearn from "@/public/Small-icons/scikit-learn.svg";
+import Pandas from "@/public/Small-icons/Pandas.svg";
+import Jupyter from "@/public/Small-icons/Jupyter.svg";
 
 // Animation variants
 const fadeFromLeft = {
