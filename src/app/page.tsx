@@ -1,6 +1,5 @@
 "use client"; // Ensures this component is treated as a client component
 
-import { useState } from "react";
 import Home from "@/app/Home/page";
 import About from "@/app/About/page";
 import DataScience from "@/app/DataScience/page";
@@ -11,12 +10,6 @@ import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
 import Spline from "@splinetool/react-spline";
-
-interface FeedbackType {
-  _id: string;
-  name: string;
-  message: string;
-}
 
 export default function MainPage() {
   return (

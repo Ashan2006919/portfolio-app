@@ -43,6 +43,7 @@ const Feedback: React.FC = () => {
       setFeedbacks(response.data);
       setError(null);
     } catch (error) {
+      console.error("An error occurred while fetching feedback:", error);
       setError("An error occurred while fetching feedback.");
     } finally {
       setLoading(false);
@@ -106,7 +107,7 @@ const Feedback: React.FC = () => {
         Feedback of Others:
       </h2>
       <p className="font-light lg:text-lg">
-        Here's what those who have worked with me are saying about their
+        Here&apos;s what those who have worked with me are saying about their
         experience:
       </p>
 
