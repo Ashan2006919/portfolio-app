@@ -1,0 +1,204 @@
+"use client"; // Add this line at the top
+
+import React from "react";
+import { FaGithub, FaDownload } from "react-icons/fa";
+import { FaProjectDiagram } from "react-icons/fa"; // Importing a project icon
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
+import AnimatedShinyText from "@/components/ui/animated-shiny-text";
+import ShineBorder from "@/components/ui/shine-border";
+import ViewProject from "@/components/others/ViewProject";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Placeholder from "@/public/My photos/Placeholder.png";
+import Whatappicon from "@/public/icons/whatsapp 3d.png";
+import Telegramicon from "@/public/icons/telegram.png";
+import Instagramicon from "@/public/icons/instagram.png";
+import LinkedInicon from "@/public/icons/linkedin.png";
+import TikTokicon from "@/public/icons/tiktok.png";
+import GitHubicon from "@/public/icons/github.png";
+
+export default function Home() {
+  return (
+    <div>
+      <section className="bg-transparent">
+        <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto -mt-10 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+          <div className="mr-auto place-self-center lg:col-span-7">
+            <div className="container mx-auto">
+              <motion.h1
+                className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white text-left"
+                initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
+                whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
+                viewport={{ once: true }} // Ensures it only happens once
+                transition={{ duration: 0.5 }}
+              >
+                Ashan Niwantha
+              </motion.h1>
+
+              <motion.p
+                className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-left"
+                initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
+                whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
+                viewport={{ once: true }} // Ensures it only happens once
+                transition={{ duration: 0.5 }}
+              >
+                A passionate IT student from Sri Lanka, committed to shaping the
+                future of technology with creativity and dedication!
+              </motion.p>
+            </div>
+
+            <motion.div
+              className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4 mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <a
+                href="/path-to-your-resume.pdf"
+                className="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-white bg-orange-500 rounded-lg sm:w-auto hover:bg-orange-600 hover:text-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              >
+                <FaDownload className="w-4 h-4 mr-2" />
+                Download Resume
+              </a>
+              <ViewProject />
+            </motion.div>
+          </div>
+
+          <div className="lg:mt-0 lg:col-span-5 flex justify-center items-center">
+            <motion.div
+              className="relative flex w-full max-w-md lg:max-w-none flex-col items-center justify-center overflow-hidden rounded-lg border border-transparent bg-transparent md:shadow-xl p-0 m-0"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <ShineBorder
+                borderWidth={4}
+                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                className="p-0"
+              >
+                <Image
+                  className="w-full h-auto mx-auto m-0 p-0"
+                  src={Placeholder}
+                  alt="hero"
+                  width={0} // Set to 0 for auto width
+                  height={0} // Set to 0 for auto height
+                />
+              </ShineBorder>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-transparent py-8">
+        {/* <section className="bg-white dark:bg-gray-900 py-8"> */}
+        <motion.div
+          className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/94752006932"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={Whatappicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="WhatsApp"
+                />
+              </div>
+            </a>
+
+            {/* Telegram */}
+            <a
+              href="https://t.me/AshanNiwantha"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={Telegramicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="Telegram"
+                />
+              </div>
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/mr.ashan_99/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={Instagramicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="Instagram"
+                />
+              </div>
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/ashan-niwantha-13052927b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={LinkedInicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="LinkedIn"
+                />
+              </div>
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@ashan.niwantha0?_t=8qRqDBVXMCD&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={TikTokicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="TikTok"
+                />
+              </div>
+            </a>
+
+            {/* GitHub */}
+            <a
+              href="https://github.com/Ashan2006919"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center"
+            >
+              <div className="hover:text-gray-900 dark:hover:text-white">
+                <Image
+                  src={GitHubicon}
+                  className="w-auto h-auto max-w-full max-h-28"
+                  alt="GitHub"
+                />
+              </div>
+            </a>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+}
