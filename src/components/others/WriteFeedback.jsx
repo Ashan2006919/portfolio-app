@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
+import { useModal } from "@/components/others/ModalContext"; // Ensure the path is correct
 
-const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
+const WriteFeedback = ({ addFeedback }) => {
   const [formData, setFormData] = useState({
     name: "",
     jobTitle: "",
@@ -10,6 +11,8 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
     image: null,
     rating: 0,
   });
+
+  const { isModalOpen, closeModal } = useModal(); // Use closeModal instead of toggleModal
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +39,6 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation for minimum 60 characters
     if (formData.review.length < 60) {
       alert("Review must be at least 60 characters long.");
       return;
@@ -47,18 +49,15 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
       job: formData.jobTitle,
       comment: formData.review,
       rating: formData.rating,
-      // Handle image upload logic here if needed
     };
 
     try {
       const response = await axios.post(
         "https://review-app-production.up.railway.app/reviews",
         newFeedback
-      ); // Updated URL
+      );
       console.log("Feedback submitted:", response.data);
-      addFeedback(response.data); // Call addFeedback function passed as a prop
-
-      // Reset form data and close modal
+      addFeedback(response.data);
       setFormData({
         name: "",
         jobTitle: "",
@@ -66,26 +65,13 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
         image: null,
         rating: 0,
       });
-      toggleModal(); // Close the modal after submission
+      closeModal(); // Close the modal after submission
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
   };
 
-  // Only reset the form when the modal is opened
-  React.useEffect(() => {
-    if (isOpen) {
-      setFormData({
-        name: "",
-        jobTitle: "",
-        review: "",
-        image: null,
-        rating: 0,
-      });
-    }
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+  if (!isModalOpen) return null; // Prevent rendering if modal is not open
 
   return (
     <div
@@ -94,25 +80,19 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
       role="dialog"
       tabIndex="-1"
       aria-labelledby="hs-review-modal-label"
-      onClick={toggleModal} // Close modal on background click
+      onClick={closeModal} // Close modal when clicking outside
     >
       <div className="sm:max-w-lg sm:w-full m-3 sm:mx-auto">
         <div
           className="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto"
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
         >
-          <div className="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
-            <h3
-              id="hs-review-modal-label"
-              className="font-bold text-gray-800 flex items-center"
-            >
-              Write a Feedback:
-            </h3>
+          <div className="flex justify-between items-center py-3 px-4 border-b">
+            <h3 className="font-bold text-gray-800">Write a Feedback:</h3>
             <button
               type="button"
-              className="h-8 w-8 inline-flex justify-center items-center rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200"
-              aria-label="Close"
-              onClick={toggleModal} // Close modal on button click
+              className="h-8 w-8 inline-flex justify-center items-center rounded-full bg-gray-100 hover:bg-gray-200"
+              onClick={closeModal} // Use closeModal for closing the modal
             >
               <svg
                 className="shrink-0 h-4 w-4"
@@ -210,7 +190,7 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
               <button
                 type="button"
                 className="mr-2 px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
-                onClick={toggleModal} // Close modal on button click
+                onClick={closeModal} // Use closeModal for cancelling
               >
                 Cancel
               </button>

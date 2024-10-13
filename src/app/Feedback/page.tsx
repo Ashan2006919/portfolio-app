@@ -1,9 +1,9 @@
-"use client"; // This ensures the component is treated as a client component
+"use client"; // Ensures the component is treated as a client component
 
 import React, { useEffect, useState } from "react";
-import FeedbackCard from "@/components/others/FeedbackCard"; // Adjusted import path as needed
-import FeedbackSkeleton from "@/components/others/FeedbackSkeleton"; // Adjusted import path as needed
-import ErrorCard from "@/components/others/ErrorCard"; // Adjusted import path as needed
+import FeedbackCard from "@/components/others/FeedbackCard";
+import FeedbackSkeleton from "@/components/others/FeedbackSkeleton";
+import ErrorCard from "@/components/others/ErrorCard";
 import {
   Carousel,
   CarouselContent,
@@ -11,37 +11,35 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import WriteFeedback from "@/components/others/WriteFeedback";
 import axios from "axios";
 import { Button } from "@nextui-org/react";
-import animationData1 from "@/public/assets/Animations/error.json"; // Adjusted import path as needed
+import animationData1 from "@/public/assets/Animations/error.json";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useModal } from "@/components/others/ModalContext";
 
-// Define a TypeScript interface for the feedback structure
 interface Feedback {
-  _id: string; // Adjust based on your backend response
-  comment: string; // Adjust based on your feedback fields
-  name: string; // Adjust based on your feedback fields
-  job: string; // Adjust based on your feedback fields
-  image: string; // Adjust based on your feedback fields
-  rating: number; // Adjust based on your feedback fields
+  _id: string;
+  comment: string;
+  name: string;
+  job: string;
+  image: string;
+  rating: number;
 }
 
 const Feedback: React.FC = () => {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { ref, inView } = useInView({ threshold: 0.1 });
+  const { openModal } = useModal(); // Use global modal state
 
-  // Fetch feedbacks from the server
   const fetchFeedbacks = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
         "https://review-app-production.up.railway.app/reviews"
-      ); // Updated URL
+      );
       setFeedbacks(response.data);
       setError(null);
     } catch (error) {
@@ -56,37 +54,15 @@ const Feedback: React.FC = () => {
     fetchFeedbacks();
   }, []);
 
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
-
-  // Function to delete all feedback
   const handleDeleteAllFeedback = async () => {
     try {
       await axios.delete(
         "https://review-app-production.up.railway.app/reviews"
-      ); // Updated URL
+      );
       setFeedbacks([]);
       console.log("All feedback deleted");
     } catch (error) {
       console.error("Error deleting all feedback:", error);
-    }
-  };
-
-  // Function to handle adding new feedback
-  const addFeedback = async (newFeedback: Feedback) => {
-    try {
-      const response = await axios.post(
-        "https://review-app-production.up.railway.app/reviews", // Updated URL
-        newFeedback
-      );
-      setFeedbacks((prev) => [
-        ...prev,
-        { ...newFeedback, _id: response.data.id },
-      ]);
-      toggleModal();
-    } catch (error) {
-      console.error("Error submitting feedback:", error);
     }
   };
 
@@ -111,7 +87,7 @@ const Feedback: React.FC = () => {
         Feedback of Others:
       </h2>
       <p className="font-light lg:text-lg">
-        Here&apos;s what those who have worked with me are saying about their
+        Here's what those who have worked with me are saying about their
         experience:
       </p>
 
@@ -155,7 +131,7 @@ const Feedback: React.FC = () => {
           color="primary"
           variant="shadow"
           className="mt-5 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 font-semibold"
-          onClick={toggleModal}
+          onClick={openModal} // Open global modal
         >
           Write a Review
         </Button>
@@ -166,12 +142,6 @@ const Feedback: React.FC = () => {
           Delete All Feedback
         </button>
       </div>
-
-      <WriteFeedback
-        isOpen={isModalOpen}
-        toggleModal={toggleModal}
-        addFeedback={addFeedback}
-      />
     </motion.div>
   );
 };
