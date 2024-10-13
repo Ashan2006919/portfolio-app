@@ -39,7 +39,9 @@ const Feedback: React.FC = () => {
   const fetchFeedbacks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3000/reviews");
+      const response = await axios.get(
+        "https://review-m8bxzbmes-ashan2006919s-projects.vercel.app/reviews"
+      ); // Updated URL
       setFeedbacks(response.data);
       setError(null);
     } catch (error) {
@@ -61,7 +63,9 @@ const Feedback: React.FC = () => {
   // Function to delete all feedback
   const handleDeleteAllFeedback = async () => {
     try {
-      await axios.delete("http://localhost:3000/reviews");
+      await axios.delete(
+        "https://review-m8bxzbmes-ashan2006919s-projects.vercel.app/reviews"
+      ); // Updated URL
       setFeedbacks([]);
       console.log("All feedback deleted");
     } catch (error) {
@@ -73,7 +77,7 @@ const Feedback: React.FC = () => {
   const addFeedback = async (newFeedback: Feedback) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/reviews",
+        "https://review-m8bxzbmes-ashan2006919s-projects.vercel.app/reviews", // Updated URL
         newFeedback
       );
       setFeedbacks((prev) => [
