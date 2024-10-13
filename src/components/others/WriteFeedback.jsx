@@ -52,7 +52,7 @@ const WriteFeedback = ({ isOpen, toggleModal, addFeedback }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/reviews",
+        "https://review-app-production.up.railway.app/reviews",
         newFeedback
       ); // Updated URL
       console.log("Feedback submitted:", response.data);

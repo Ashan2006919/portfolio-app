@@ -55,14 +55,6 @@ const FeedbackCard = ({ feedback }) => {
           </div>
         </div>
         <div className="flex items-center gap-1">{renderStars(rating)}</div>
-        <button
-          onClick={() => setIsFollowed(!isFollowed)}
-          className={`ml-auto ${
-            isFollowed ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isFollowed ? "Unfollow" : "Follow"}
-        </button>
       </CardHeader>
       <CardBody className="px-3 py-0 text-small text-default-400">
         <div
