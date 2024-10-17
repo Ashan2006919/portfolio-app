@@ -36,7 +36,7 @@ export default function DAProjects() {
   const isInView = useInView(ref, { once: true }); // Check if the container is in the viewport
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-[#121212] py-6">
+    <div className="flex justify-center items-center min-h-screen py-6">
       {" "}
       {/* Flex container to center the grid */}
       <motion.div

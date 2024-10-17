@@ -1,4 +1,4 @@
-"use client"; // Add this line at the top
+"use client";
 
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ export default function Features() {
   };
 
   return (
-    <section className="bg-gray-50 dark:bg-[#121212]">
+    <section className="bg-white dark:bg-black">
       <div className="max-w-screen-xl px-4 py-4 -mt-16 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
         {/* Row 2 */}
         <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">

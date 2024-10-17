@@ -72,7 +72,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="w-full h-full mx-auto bg-white px-8 py-8 -my-10 dark:bg-[#121212]">
+    <div className="w-full h-full mx-auto px-8 py-8 -my-10">
       {/* Main container for form and contact details */}
       <div
         className="flex flex-col md:flex-row justify-center items-start gap-12 ml-10"

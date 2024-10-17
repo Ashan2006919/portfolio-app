@@ -76,7 +76,7 @@ const Feedback: React.FC = () => {
   const skeletonCount = 2; // Number of skeleton cards to display while loading
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 bg-white dark:bg-black">
       <motion.div
         ref={ref}
         variants={containerVariants}

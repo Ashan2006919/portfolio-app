@@ -10,7 +10,6 @@ import Contact from "@/app/Contact/page";
 import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
-import WriteFeedback from "@/components/others/WriteFeedback"; // Import WriteFeedback
 import AlertDialogDemo from "@/app/Test/page"; // Import AlertDialogDemo
 import AnimatedCursor from "react-animated-cursor";
 import { useEffect, useState } from "react";
@@ -56,7 +55,7 @@ export default function MainPage() {
       />
       <RetroGrid />
       <main className="relative">
-        <div className="relative z-10 scroll-snap-container scroll-smooth bg-white dark:bg-black">
+        <div className="relative z-10 scroll-snap-container scroll-smooth bg-gray-50 dark:bg-[#121212]">
           {/* Home Section */}
           <section
             id="home"
@@ -133,9 +132,6 @@ export default function MainPage() {
             <Footer />
           </section>
         </div>
-
-        {/* WriteFeedback Modal should always be rendered */}
-        <WriteFeedback addFeedback={addFeedback} />
       </main>
     </ModalContextProvider>
   );

@@ -36,7 +36,7 @@ export default function WebProjects() {
   const isInView = useInView(ref, { once: true }); // Check if the container is in the viewport
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-[#121212]">
+    <div className="flex justify-center items-center min-h-screen">
       <motion.div
         ref={ref} // Attach the ref to the container
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-x-24 p-4"
