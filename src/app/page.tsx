@@ -11,7 +11,7 @@ import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
 import Test from "@/app/Test/page"; // Import AlertDialogDemo
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTheme } from "next-themes";
 import AnimatedCursor from "react-animated-cursor";
 
