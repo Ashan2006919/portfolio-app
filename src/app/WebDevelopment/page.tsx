@@ -16,6 +16,7 @@ import GitHub from "@/public/Small-Icons/GitHub.svg";
 import Tailwind from "@/public/Small-Icons/Tailwind CSS.svg";
 import Bootstrap from "@/public/Small-Icons/Bootstrap.svg";
 import PHP from "@/public/Small-Icons/PHP.svg";
+import BoxReveal from "@/components/ui/box-reveal";
 
 // Animation variants
 const fadeFromLeft = {
@@ -31,7 +32,7 @@ const fadeFromRight = {
 export default function WebDevelopment() {
   // Web Development specific image and cards data
   return (
-    <div className="h-auto sm:h-[711px] p-5 md:p-20 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 lg:mt-20 sm:mt-10 md:pt-36 sm:-mb-16">
+    <div className="h-auto min-h-screen p-5 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 md:mt-0 lg:mt-20 sm:mt-12 sm:-mb-40 md:mb-0">
       {/* Left Section (Text and Data) */}
       <motion.div
         className="grow shrink basis-0 flex-col justify-start items-start gap-8"
@@ -41,10 +42,12 @@ export default function WebDevelopment() {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         variants={fadeFromLeft} // Fade in from the left
       >
-        {/* Title */}
-        <h2 className="mb-6 text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Web Development:
-        </h2>
+        <BoxReveal boxColor={"#f97316"} duration={0.75}>
+          {/* Title */}
+          <h2 className="mb-6 text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            Web Development:
+          </h2>
+        </BoxReveal>
 
         {/* Data Details Section */}
         <div className="self-stretch flex-col justify-start items-start gap-4 flex">

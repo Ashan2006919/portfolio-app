@@ -11,6 +11,12 @@ import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
 import WriteFeedback from "@/components/others/WriteFeedback"; // Import WriteFeedback
+import AlertDialogDemo from "@/app/Test/page"; // Import AlertDialogDemo
+import AnimatedCursor from "react-animated-cursor";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import Particles from "@/components/ui/particles";
+import RetroGrid from "@/components/ui/retro-grid";
 
 export default function MainPage() {
   const addFeedback = (newFeedback: any) => {
@@ -19,10 +25,38 @@ export default function MainPage() {
     // You can also store it in state if needed
   };
 
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
+
   return (
     <ModalContextProvider>
+      {/*<AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={2}
+        outerAlpha={0}
+        innerStyle={{
+          backgroundColor: "var(--cursor-color)",
+        }}
+        outerStyle={{
+          border: "3px solid var(--cursor-color)",
+        }}
+      />*/}
+      <Particles
+        className="fixed inset-0 h-screen w-full"
+        quantity={100}
+        ease={80}
+        color={color}
+        refresh
+      />
+      <RetroGrid />
       <main className="relative">
-        <div className="relative z-10 scroll-snap-container scroll-smooth">
+        <div className="relative z-10 scroll-snap-container scroll-smooth bg-white dark:bg-black">
           {/* Home Section */}
           <section
             id="home"
@@ -87,12 +121,15 @@ export default function MainPage() {
           >
             <Contact />
           </section>
-
-          {/* Footer Section */}
+          {/* AlertDialogDemo for testing */}
           <section
-            id="footer"
+            id="test"
             className="min-h-screen scroll-snap-start bg-transparent"
           >
+            <AlertDialogDemo />
+          </section>
+          {/* Footer Section */}
+          <section id="footer" className="scroll-snap-start bg-transparent">
             <Footer />
           </section>
         </div>

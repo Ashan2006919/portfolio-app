@@ -36,24 +36,28 @@ export default function DAProjects() {
   const isInView = useInView(ref, { once: true }); // Check if the container is in the viewport
 
   return (
-    <motion.div
-      ref={ref} // Attach the ref to the container
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-gray-50 dark:bg-gray-800"
-      variants={container} // Apply the container animation
-      initial="hidden" // Set initial state
-      animate={isInView ? "visible" : "hidden"} // Animate to visible when in view
-    >
-      {projects.map((project) => (
-        <motion.div key={project.title} variants={item}>
-          {/* Wrap each ProjectCard with motion.div */}
-          <ProjectCard
-            title={project.title}
-            description={project.description}
-            image={project.image}
-            tags={project.tags}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+    <div className="flex justify-center items-center min-h-screen bg-white dark:bg-[#121212] py-6">
+      {" "}
+      {/* Flex container to center the grid */}
+      <motion.div
+        ref={ref} // Attach the ref to the container
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-x-24 p-4" // Adjust padding if needed
+        variants={container} // Apply the container animation
+        initial="hidden" // Set initial state
+        animate={isInView ? "visible" : "hidden"} // Animate to visible when in view
+      >
+        {projects.map((project) => (
+          <motion.div key={project.title} variants={item}>
+            {/* Wrap each ProjectCard with motion.div */}
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              tags={project.tags}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   );
 }

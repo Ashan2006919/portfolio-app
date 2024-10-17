@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/NavBar"; // Ensure the path to NavBar is correct
+import { ThemeProvider } from "@/components/theme-provider";
 
 // Load custom fonts using localFont
 const geistSans = localFont({
@@ -17,10 +18,11 @@ const geistMono = localFont({
 
 // Metadata for SEO and browser tab titles
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "A Next.js application created with Next.js.",
-  keywords: "Next.js, React, application",
-  authors: [{ name: "Ashan Niwantha", url: "https://yourwebsite.com" }], // Change to your name/website
+  title: "Ashan Niwantha",
+  description: "Portfolio of a institutional Sri Lankan student!",
+  keywords:
+    "application, portfolio, student, data science, data analytics, web developmnt, programming, software engineering, Ashan Niwantha, Next.js, React, Timeline, Projects, Tailwind css",
+  authors: [{ name: "Ashan Niwantha", url: "https://github.com/Ashan2006919" }],
 };
 
 export default function RootLayout({
@@ -36,14 +38,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-gray-100 text-gray-800`}
       >
-        {/* NavBar component */}
-        <NavBar />
-
-        {/* Main content */}
-        <main className="min-h-screen">
-          {/* Inject the children (the content of the page) */}
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* NavBar component */}
+          <NavBar />
+          {/* Main content */}
+          <main className="min-h-screen">
+            {/* Inject the children (the content of the page) */}
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

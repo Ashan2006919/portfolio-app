@@ -2,7 +2,7 @@ import { Card, Skeleton } from "@nextui-org/react";
 
 const FeedbackSkeleton: React.FC = () => {
   return (
-    <Card className="w-[400px] space-y-5 p-4 m-10" radius="lg">
+    <Card className="w-[400px] space-y-5 p-4" radius="lg">
       <Skeleton className="rounded-lg">
         <div className="h-24 rounded-lg bg-default-300"></div>
       </Skeleton>

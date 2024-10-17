@@ -1,3 +1,4 @@
+// ProjectCard.jsx
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 interface ProjectCardProps {
@@ -11,10 +12,10 @@ export function ProjectCard({
   title,
   description,
   image,
-  tags = [], // Default value assigned directly in function parameters
+  tags = [], // Default value for tags is now handled here
 }: ProjectCardProps) {
   return (
-    <Card className="pb-5">
+    <Card className="w-[350px] shadow-2xl m-5">
       <CardHeader className="pb-0 -mt-3 px-0 flex-col items-start">
         <Image
           alt={title}

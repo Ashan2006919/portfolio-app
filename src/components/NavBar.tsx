@@ -1,4 +1,4 @@
-"use client"; // Add this line at the top
+"use client";
 
 import Link from "next/link"; // Import Link from react-router-dom
 import {
@@ -21,11 +21,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/ui/dock";
+import ModeToggle from "@/components/others/ModeToggle"; // Import the ModeToggle component
 
 // Navigation items
 const DATA = {
   navigation: [
-    { name: "Home", href: "/#home", icon: FaHome }, // Add leading slash for routing
+    { name: "Home", href: "/#home", icon: FaHome },
     { name: "About", href: "/#about", icon: FaInfo },
     { name: "Data Science", href: "/#datascience", icon: FaCode },
     { name: "Web Development", href: "/#webdevelopment", icon: FaLaptopCode },
@@ -33,8 +34,6 @@ const DATA = {
     { name: "Feedback", href: "/#feedback", icon: FaComment },
     { name: "Contact", href: "/#contact", icon: FaEnvelope },
   ],
-
-  // Social links
   socialLinks: [
     { name: "GitHub", href: "https://github.com", icon: FaGithub },
     { name: "Email", href: "mailto:example@example.com", icon: FaEnvelope },
@@ -47,17 +46,17 @@ export default function NavBar() {
     const targetElement = document.querySelector(`#${targetId}`);
 
     if (targetElement) {
-      event.preventDefault(); // Prevent default anchor behavior
+      event.preventDefault();
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background md:shadow-xl">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-background dark:border-white md:shadow-xl">
       <TooltipProvider>
         <Dock
           direction="middle"
-          className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50"
+          className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 border-gray-300 dark:border-white"
         >
           {/* Render navigation items */}
           {DATA.navigation.map((item) => (
@@ -65,15 +64,15 @@ export default function NavBar() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href={item.href} // Use Link for navigation
-                    onClick={handleScroll} // Smooth scroll on click
+                    href={item.href}
+                    onClick={handleScroll}
                     aria-label={item.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 rounded-full"
                     )}
                   >
-                    <item.icon className="size-4" />
+                    <item.icon className="size-4 text-black dark:text-white" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -84,7 +83,10 @@ export default function NavBar() {
           ))}
 
           {/* Add separator */}
-          <Separator orientation="vertical" className="h-full" />
+          <Separator
+            orientation="vertical"
+            className="h-full bg-gray-300 dark:bg-white"
+          />
 
           {/* Render social icons */}
           {DATA.socialLinks.map((social) => (
@@ -99,7 +101,7 @@ export default function NavBar() {
                       "size-12 rounded-full"
                     )}
                   >
-                    <social.icon className="size-4" />
+                    <social.icon className="size-4 text-black dark:text-white" />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -108,6 +110,11 @@ export default function NavBar() {
               </Tooltip>
             </DockIcon>
           ))}
+
+          {/* Add ModeToggle button to the navbar */}
+          <DockIcon key="mode-toggle">
+            <ModeToggle />
+          </DockIcon>
         </Dock>
       </TooltipProvider>
     </div>

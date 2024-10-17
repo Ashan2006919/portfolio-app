@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ShineBorder from "@/components/ui/shine-border";
 import Image from "next/image"; // Ensure to import Image from Next.js
 import MyImage from "@/public/My photos/IMG_0145.jpg";
+import BoxReveal from "@/components/ui/box-reveal";
 
 export default function Features() {
   // Animation variant for fade from left for the image
@@ -20,7 +21,7 @@ export default function Features() {
   };
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-800">
+    <section className="bg-gray-50 dark:bg-[#121212]">
       <div className="max-w-screen-xl px-4 py-4 -mt-16 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
         {/* Row 2 */}
         <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
@@ -32,19 +33,21 @@ export default function Features() {
             transition={{ duration: 0.6, ease: "easeInOut" }}
             variants={fadeFromLeft} // Fade from the left
           >
-            <ShineBorder
-              borderWidth={4}
-              color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-              className="p-0"
-            >
-              <Image
-                className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" // Your original image styling
-                src={MyImage}
-                alt="feature image 2"
-                width={500} // Specify width
-                height={300} // Specify height
-              />
-            </ShineBorder>
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <ShineBorder
+                borderWidth={4}
+                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                className="p-0 hidden lg:flex"
+              >
+                <Image
+                  className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+                  src={MyImage}
+                  alt="feature image 2"
+                  width={500} // Specify width
+                  height={300} // Specify height
+                />
+              </ShineBorder>
+            </BoxReveal>
           </motion.div>
 
           <motion.div
@@ -55,15 +58,19 @@ export default function Features() {
             transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
             variants={fadeFromRight} // Fade from the right
           >
-            <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              About Me:
-            </h2>
-            <p className="mb-8 font-light lg:text-xl">
-              &quot;My name is Ashan Niwantha, a student from Sri Lanka with a
-              dream of becoming a Data Scientist with innovative thinking. I am
-              currently pursuing my HNDs in Data Analytics and completing my
-              A-Levels in the Science stream.&quot;
-            </p>
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                About Me:
+              </h2>
+            </BoxReveal>
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <p className="mb-8 font-light lg:text-xl">
+                &quot;My name is Ashan Niwantha, a student from Sri Lanka with a
+                dream of becoming a Data Scientist with innovative thinking. I
+                am currently pursuing my HNDs in Data Analytics and completing
+                my A-Levels in the Science stream.&quot;
+              </p>
+            </BoxReveal>
             {/* List */}
             <ul className="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
               <li className="flex space-x-3">
@@ -91,12 +98,14 @@ export default function Features() {
                 </span>
               </li>
             </ul>
-            <p className="font-light lg:text-xl">
-              &quot;Alongside my studies, I’m on a mission to gain hands-on
-              experience through various IT-related projects. I am confident in
-              my ability to achieve my goals and thrive as a successful
-              individual in today&#39;s fast-evolving world!&quot;
-            </p>
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <p className="font-light lg:text-xl">
+                &quot;Alongside my studies, I’m on a mission to gain hands-on
+                experience through various IT-related projects. I am confident
+                in my ability to achieve my goals and thrive as a successful
+                individual in today&#39;s fast-evolving world!&quot;
+              </p>
+            </BoxReveal>
           </motion.div>
         </div>
       </div>

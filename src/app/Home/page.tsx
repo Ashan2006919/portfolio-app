@@ -13,62 +13,74 @@ import Instagramicon from "@/public/icons/instagram.png";
 import LinkedInicon from "@/public/icons/linkedin.png";
 import TikTokicon from "@/public/icons/tiktok.png";
 import GitHubicon from "@/public/icons/github.png";
+import BoxReveal from "@/components/ui/box-reveal";
 
 export default function Home() {
   return (
     <div>
-      <section className="bg-transparent">
-        <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto -mt-10 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-          <div className="mr-auto place-self-center lg:col-span-7">
-            <div className="container mx-auto">
-              <motion.h1
-                className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white text-left"
-                initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
-                whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
-                viewport={{ once: true }} // Ensures it only happens once
-                transition={{ duration: 0.5 }}
-              >
-                Ashan Niwantha
-              </motion.h1>
-
-              <motion.p
-                className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-left"
-                initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
-                whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
-                viewport={{ once: true }} // Ensures it only happens once
-                transition={{ duration: 0.5 }}
-              >
-                A passionate IT student from Sri Lanka, committed to shaping the
-                future of technology with creativity and dedication!
-              </motion.p>
-            </div>
-
-            <motion.div
-              className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4 mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+      {" "}
+      <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto -mt-10 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <div className="container mx-auto">
+            <motion.h1
+              className="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white text-left"
+              initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
+              whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
+              viewport={{ once: true }} // Ensures it only happens once
               transition={{ duration: 0.5 }}
             >
-              <a
-                href="/path-to-your-resume.pdf"
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-white bg-orange-500 rounded-lg sm:w-auto hover:bg-orange-600 hover:text-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-              >
-                <FaDownload className="w-4 h-4 mr-2" />
-                Download Resume
-              </a>
-              <ViewProject />
+              <BoxReveal boxColor={"#f97316"} duration={0.75}>
+                <div>Ashan Niwantha</div>
+              </BoxReveal>
+            </motion.h1>
+
+            <motion.div
+              className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-left"
+              initial={{ opacity: 0, scale: 0.8 }} // Fades in on refresh
+              whileInView={{ opacity: 1, scale: 1 }} // Fades in on scroll
+              viewport={{ once: true }} // Ensures it only happens once
+              transition={{ duration: 0.5 }}
+            >
+              <BoxReveal boxColor={"#f97316"} duration={0.75}>
+                <div className="text-gray-500 dark:text-gray-400">
+                  A passionate IT student from Sri Lanka, committed to shaping
+                  the future of technology with creativity and dedication!
+                </div>
+              </BoxReveal>
             </motion.div>
           </div>
 
-          <div className="lg:mt-0 lg:col-span-5 flex justify-center items-center">
-            <motion.div
-              className="relative flex w-full max-w-md lg:max-w-none flex-col items-center justify-center overflow-hidden rounded-lg border border-transparent bg-transparent md:shadow-xl p-0 m-0"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+          <motion.div
+            className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4 mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <a
+                href="/path-to-your-resume.pdf"
+                className="inline-flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white bg-orange-500 rounded-lg hover:bg-orange-600 hover:text-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              >
+                <FaDownload className="w-4 h-4 mr-2" />
+                <div className="text-medium">Download Resume</div>
+              </a>
+            </BoxReveal>
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
+              <ViewProject />
+            </BoxReveal>
+          </motion.div>
+        </div>
+
+        <div className="lg:mt-0 lg:col-span-5 flex justify-center items-center">
+          <motion.div
+            className="relative flex w-full max-w-md lg:max-w-none flex-col items-center justify-center overflow-hidden rounded-lg border border-transparent bg-transparent md:shadow-xl p-0 m-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <BoxReveal boxColor={"#f97316"} duration={0.75}>
               <ShineBorder
                 borderWidth={4}
                 color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -82,13 +94,11 @@ export default function Home() {
                   height={0} // Set to 0 for auto height
                 />
               </ShineBorder>
-            </motion.div>
-          </div>
+            </BoxReveal>
+          </motion.div>
         </div>
-      </section>
-
-      <section className="bg-transparent py-8">
-        {/* <section className="bg-white dark:bg-gray-900 py-8"> */}
+      </div>
+      <div className="bg-transparent py-8 hidden lg:block">
         <motion.div
           className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -96,7 +106,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
+          <div className="grid grid-cols-2 gap-8 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 mb-3">
             {/* WhatsApp */}
             <a
               href="https://wa.me/94752006932"
@@ -194,7 +204,7 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
-      </section>
+      </div>
     </div>
   );
 }

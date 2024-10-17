@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import CoursesSection from "@/components/others/CoursesSection";
 import { Player } from "@lottiefiles/react-lottie-player";
 import animationData1 from "@/public/assets/Animations/success.json";
-import animationData2 from "@/public/assets/Animations/right-arrow.json";
+import animationData2 from "@/public/assets/Animations/thriple-arrow.json";
 import Image from "next/image";
 import Python from "@/public/Small-Icons/Python.svg";
 import MySQL from "@/public/Small-Icons/MySQL.svg";
@@ -15,6 +15,7 @@ import NumPy from "@/public/Small-Icons/NumPy.svg";
 import scikitLearn from "@/public/Small-Icons/scikit-learn.svg";
 import Pandas from "@/public/Small-Icons/Pandas.svg";
 import Jupyter from "@/public/Small-Icons/Jupyter.svg";
+import BoxReveal from "@/components/ui/box-reveal";
 
 // Animation variants
 const fadeFromLeft = {
@@ -29,7 +30,7 @@ const fadeFromRight = {
 
 const DataScienceComponent = () => {
   return (
-    <div className="h-auto sm:h-[711px] p-5 md:p-20 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 lg:mt-20 sm:-mt-32 sm:-mb-20">
+    <div className="h-auto sm:h-[711px] p-5 md:p-20 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 lg:mt-20 sm:-mt-28 sm:-mb-48 md:-mb-20 md:-mt-64">
       {/* Left Section (Text and Data) */}
       <motion.div
         className="grow shrink basis-0 flex-col justify-start items-start gap-8"
@@ -39,9 +40,11 @@ const DataScienceComponent = () => {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         variants={fadeFromLeft}
       >
-        <h2 className="mb-6 text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Data Science:
-        </h2>
+        <BoxReveal boxColor={"#f97316"} duration={0.75}>
+          <h2 className="mb-6 text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            Data Science:
+          </h2>
+        </BoxReveal>
 
         <div className="self-stretch flex-col justify-start items-start gap-4 flex">
           {/* List of Skills with Lottie Animations */}
@@ -69,7 +72,12 @@ const DataScienceComponent = () => {
                 autoplay
                 loop={true}
                 src={animationData2}
-                style={{ height: "60px", width: "60px", marginLeft: "10px" }}
+                style={{
+                  height: "60px",
+                  width: "60px",
+                  marginLeft: "10px",
+                  color: "blue",
+                }}
               />
             </a>
           </div>
@@ -127,7 +135,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ label, skills }) => {
         src={animationData1}
         style={{ height: "40px", width: "40px" }}
       />
-      <div className="text-slate-900 text-base sm:text-xl font-normal font-['Roboto'] leading-6 sm:leading-9">
+      <div className="text-slate-900 dark:text-gray-200 text-base sm:text-xl font-normal font-['Roboto'] leading-6 sm:leading-9">
         <span>{label}: </span>
         <span className="font-semibold text-orange-600">{skills}</span>
       </div>

@@ -35,9 +35,9 @@ const ErrorCard: React.FC<ErrorCardProps> = ({
     <Card
       isFooterBlurred
       radius="lg"
-      className="border-none w-80 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2"
+      className="w-[350px] h-56 space-y-5 p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
     >
-      <div className="relative -mb-5 -mt-6">
+      <div className="relative -mb-36 -mt-6">
         <Image
           alt="Error"
           className="object-cover rounded-lg"
@@ -47,7 +47,7 @@ const ErrorCard: React.FC<ErrorCardProps> = ({
           style={{ width: "100%", height: "auto" }}
         />
       </div>
-      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-2 overflow-hidden py-1 z-10 rounded-xl">
+      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-2 overflow-hidden pb-8 z-10 rounded-xl">
         <div className="flex items-center gap-2">
           <Player
             autoplay

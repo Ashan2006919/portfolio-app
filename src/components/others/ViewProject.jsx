@@ -9,6 +9,8 @@ import { FaCode, FaLaptopCode } from "react-icons/fa"; // Import the icons
 import { Link } from "react-scroll"; // Import Link from react-scroll
 import { cn } from "@/lib/utils";
 import AnimatedShinyText from "@/components/ui/animated-shiny-text";
+import AnimatedGradientText from "../ui/animated-gradient-text";
+import { useTheme } from "next-themes"; // Import theme hook from next-themes
 
 // Navigation items
 const DATA = {
@@ -19,6 +21,8 @@ const DATA = {
 };
 
 export default function ViewProject() {
+  const { theme } = useTheme(); // Get the current theme (light or dark)
+
   return (
     <Popover
       showArrow
@@ -52,13 +56,35 @@ export default function ViewProject() {
       <PopoverTrigger>
         <Button
           className={cn(
-            "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+            "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:bg-transparent"
           )}
         >
-          <AnimatedShinyText className="flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400 text-center">
-            <span>✨ View Projects</span>
-            <ArrowRightIcon className="ml-2 size-5 mt-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-          </AnimatedShinyText>
+          {/* Conditionally render based on theme */}
+          {theme === "light" ? (
+            <AnimatedShinyText className="flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400 text-center">
+              ✨ <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
+              <span
+                className={cn(
+                  `inline animate-gradient text-lg bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                )}
+              >
+                View Projects
+              </span>
+              <ArrowRightIcon className="ml-2 size-5 mt-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedShinyText>
+          ) : (
+            <AnimatedGradientText className="flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400 text-center">
+              ✨ <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
+              <span
+                className={cn(
+                  `inline animate-gradient text-lg bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                )}
+              >
+                View Projects
+              </span>
+              <ArrowRightIcon className="ml-2 size-5 mt-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedGradientText>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-4 border border-gray-100">
