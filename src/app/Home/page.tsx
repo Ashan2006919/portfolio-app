@@ -15,11 +15,12 @@ import TikTokicon from "@/public/icons/tiktok.png";
 import GitHubicon from "@/public/icons/github.png";
 import BoxReveal from "@/components/ui/box-reveal";
 import { Button } from "@nextui-org/react";
+import RetroGrid from "@/components/ui/retro-grid";
 
 export default function Home() {
   return (
     <div>
-      {" "}
+      <RetroGrid />{" "}
       <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto -mt-10 lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
         <div className="mr-auto place-self-center lg:col-span-7">
           <div className="container mx-auto">
@@ -106,7 +107,7 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-      <div className="bg-transparent py-8 hidden lg:block">
+      <div className="bg-transparent py-8">
         <motion.div
           className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16"
           initial={{ opacity: 0, scale: 0.8 }}

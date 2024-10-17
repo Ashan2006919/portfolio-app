@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import BoxReveal from "@/components/ui/box-reveal";
 import { useInView } from "react-intersection-observer";
 import animationData1 from "@/public/assets/Animations/error.json";
+import FeedbackDialog from "@/app/Feedback/FeedbackDialog";
 
 // Define the Feedback type
 type Feedback = {
@@ -150,17 +151,10 @@ const Feedback: React.FC = () => {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-white dark:from-background"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-white dark:from-background"></div>
         </div>
-        <div className="flex space-x-4 bg-transparent">
-          <Button
-            color="primary"
-            variant="shadow"
-            className="mt-5 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 font-semibold"
-            onClick={openModal} // Open global modal
-          >
-            Write a Review
-          </Button>
+        <div className="flex items-center space-x-4 bg-transparent">
+          <FeedbackDialog />
           <button
-            className="mt-5 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
             onClick={handleDeleteAllFeedback}
           >
             Delete All Feedback

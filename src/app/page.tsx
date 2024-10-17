@@ -10,12 +10,10 @@ import Contact from "@/app/Contact/page";
 import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
-import AlertDialogDemo from "@/app/Test/page"; // Import AlertDialogDemo
-import AnimatedCursor from "react-animated-cursor";
+import Test from "@/app/Test/page"; // Import AlertDialogDemo
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Particles from "@/components/ui/particles";
-import RetroGrid from "@/components/ui/retro-grid";
 
 export default function MainPage() {
   const addFeedback = (newFeedback: any) => {
@@ -53,7 +51,6 @@ export default function MainPage() {
         color={color}
         refresh
       />
-      <RetroGrid />
       <main className="relative">
         <div className="relative z-10 scroll-snap-container scroll-smooth bg-gray-50 dark:bg-[#121212]">
           {/* Home Section */}
@@ -125,7 +122,7 @@ export default function MainPage() {
             id="test"
             className="min-h-screen scroll-snap-start bg-transparent"
           >
-            <AlertDialogDemo />
+            <Test />
           </section>
           {/* Footer Section */}
           <section id="footer" className="scroll-snap-start bg-transparent">

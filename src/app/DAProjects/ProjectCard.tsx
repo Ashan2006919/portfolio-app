@@ -31,7 +31,7 @@ export function ProjectCard({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-gray-200 rounded px-2 py-1 text-xs"
+                className="bg-orange-500 rounded px-2 py-1 text-tiny text-black"
               >
                 {tag}
               </span>

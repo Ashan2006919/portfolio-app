@@ -35,8 +35,8 @@ const FeedbackCard = ({ feedback }) => {
   };
 
   return (
-    <Card className="max-w-[400px]">
-      <CardHeader className="justify-between">
+    <Card className="max-w-[400px] border-1">
+      <CardHeader className="justify-between border-b-2 mb-2">
         <div className="flex gap-5">
           <Avatar
             isBordered
@@ -56,31 +56,14 @@ const FeedbackCard = ({ feedback }) => {
         </div>
         <div className="flex items-center gap-1">{renderStars(rating)}</div>
       </CardHeader>
-      <CardBody className="px-3 py-0 text-small text-default-400">
+      <CardBody className="px-3 py-0 text-small text-default-400 pb-5">
         <div
-          className="h-20 overflow-y-auto" // Set fixed height and enable vertical scroll
+          className="h-max overflow-y-auto" // Set fixed height and enable vertical scroll
           style={{ maxHeight: "80px", overflowY: "auto" }} // Adjust height as needed
         >
           <p>{comment}</p>
         </div>
       </CardBody>
-      <CardFooter className="gap-3">
-        <Button
-          aria-label={isFollowed ? "Unfollow" : "Follow"} // Accessibility
-          className={
-            isFollowed
-              ? "bg-transparent text-foreground border-default-200"
-              : ""
-          }
-          color="primary"
-          radius="full"
-          size="sm"
-          variant={isFollowed ? "bordered" : "solid"}
-          onPress={() => setIsFollowed(!isFollowed)}
-        >
-          {isFollowed ? "Unfollow" : "Follow"}
-        </Button>
-      </CardFooter>
     </Card>
   );
 };

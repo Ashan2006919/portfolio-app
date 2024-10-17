@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
-import { useModal } from "@/components/others/ModalContext"; // Ensure the path is correct
 
-const WriteFeedback = ({ addFeedback }) => {
+const WriteFeedback = () => {
   const [formData, setFormData] = useState({
     name: "",
     jobTitle: "",
@@ -11,8 +10,6 @@ const WriteFeedback = ({ addFeedback }) => {
     image: null,
     rating: 0,
   });
-
-  const { isModalOpen, closeModal } = useModal(); // Use closeModal instead of toggleModal
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,22 +62,18 @@ const WriteFeedback = ({ addFeedback }) => {
         image: null,
         rating: 0,
       });
-      closeModal(); // Close the modal after submission
     } catch (error) {
       console.error("Error submitting feedback:", error);
     }
   };
 
-  if (!isModalOpen) return null; // Prevent rendering if modal is not open
-
   return (
     <div
       id="hs-review-modal"
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-[80] flex items-center justify-center"
       role="dialog"
       tabIndex="-1"
       aria-labelledby="hs-review-modal-label"
-      onClick={closeModal} // Close modal when clicking outside
     >
       <div className="sm:max-w-lg sm:w-full m-3 sm:mx-auto">
         <div
@@ -92,7 +85,6 @@ const WriteFeedback = ({ addFeedback }) => {
             <button
               type="button"
               className="h-8 w-8 inline-flex justify-center items-center rounded-full bg-gray-100 hover:bg-gray-200"
-              onClick={closeModal} // Use closeModal for closing the modal
             >
               <svg
                 className="shrink-0 h-4 w-4"
@@ -190,7 +182,6 @@ const WriteFeedback = ({ addFeedback }) => {
               <button
                 type="button"
                 className="mr-2 px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
-                onClick={closeModal} // Use closeModal for cancelling
               >
                 Cancel
               </button>

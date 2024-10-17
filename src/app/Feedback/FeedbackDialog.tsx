@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { FaStar } from "react-icons/fa";
 import React, { useState } from "react";
 import {
@@ -11,8 +10,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import axios from "axios";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@nextui-org/react";
 
-export default function Test() {
+export default function FeedbackDialog() {
   const [formData, setFormData] = useState<{
     name: string;
     jobTitle: string;
@@ -40,7 +42,7 @@ export default function Test() {
     if (files && files.length > 0) {
       setFormData((prev) => ({
         ...prev,
-        image: files[0], // Use the first file from the FileList
+        image: files[0],
       }));
     }
   };
@@ -73,7 +75,6 @@ export default function Test() {
         newFeedback
       );
       console.log("Feedback submitted:", response.data);
-      // Call addFeedback here if you have a function for updating feedback in state.
       setFormData({
         name: "",
         jobTitle: "",
@@ -89,65 +90,79 @@ export default function Test() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button color="primary" variant="shadow">
+          Add a Review
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+          <DialogTitle className="text-2xl font-semibold dark:text-gray-200">
+            Write Review About Me:
+          </DialogTitle>
+          <DialogDescription className="text-muted-foreground">
+            Explain your experience with me and give a honest rating!
           </DialogDescription>
         </DialogHeader>
 
-        {/* Wrap the inputs in a form */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">
+            <Label
+              htmlFor="name"
+              className="block text-secondary-foreground pb-1 pl-1"
+            >
               Name:
-            </label>
-            <input
+            </Label>
+            <Input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              className="mt-1 block w-full p-2 border border-border rounded-md"
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="jobTitle" className="block text-gray-700">
+            <Label
+              htmlFor="jobTitle"
+              className="block text-secondary-foreground pb-1 pl-1"
+            >
               Job Title:
-            </label>
-            <input
+            </Label>
+            <Input
               type="text"
               id="jobTitle"
               name="jobTitle"
               value={formData.jobTitle}
               onChange={handleChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              className="mt-1 block w-full p-2 border border-border rounded-md"
               required
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="review" className="block text-gray-700">
+            <Label
+              htmlFor="review"
+              className="block text-secondary-foreground pb-1 pl-1"
+            >
               Review:
-            </label>
+            </Label>
             <textarea
               id="review"
               name="review"
               value={formData.review}
               onChange={handleChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              className="mt-1 block w-full p-2 border border-border rounded-md"
               required
             />
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700">Rating:</label>
-            <div className="flex">
+            <Label className="block text-secondary-foreground pb-2 pl-1">
+              Rating:
+            </Label>
+            <div className="flex ml-1">
               {[...Array(5)].map((_, index) => (
                 <FaStar
                   key={index}
@@ -163,20 +178,25 @@ export default function Test() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="image" className="block text-gray-700">
+            <Label
+              htmlFor="image"
+              className="block text-secondary-foreground pb-1 pl-1"
+            >
               Image:
-            </label>
-            <input
+            </Label>
+            <Input
               type="file"
               id="image"
               accept="image/*"
               onChange={handleImageChange}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              className="mt-1 block w-full p-2 border border-border rounded-md"
             />
           </div>
 
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" color="primary" variant="shadow">
+              Save changes
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 html {
-  --cursor-color: #333
+  --cursor-color: #333;
 }
 
 html.dark-mode {
-  --cursor-color: #fff
+  --cursor-color: #fff;
 }
 
 body {
@@ -75,13 +75,11 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -104,16 +102,16 @@ body {
 
 * {
   cursor: show;
+  /* Cursor style */
 }
 
 /* Mouse custom cursor styles */
-
 .title {
   font-size: 10rem;
 }
 
 .cursor {
-  background-color: #111;
+  background-color: var(--cursor-color);
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -121,4 +119,29 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
+  transition: background-color 0.2s ease;
+  /* Smooth transition for cursor color */
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Color of the scrollbar */
+  border-radius: 10px;
+  /* Rounded corners for the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+  /* Darker color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Background of the scrollbar track */
 }
