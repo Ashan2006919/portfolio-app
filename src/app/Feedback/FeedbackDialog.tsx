@@ -13,6 +13,8 @@ import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@nextui-org/react";
+import Image from "next/image";
+import WriteIcon from "/public/icons/write.svg";
 
 export default function FeedbackDialog() {
   const [formData, setFormData] = useState<{
@@ -91,6 +93,7 @@ export default function FeedbackDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button color="primary" variant="shadow">
+          <Image src={WriteIcon} alt="" className="h-6 w-auto" />
           Add a Review
         </Button>
       </DialogTrigger>

@@ -14,6 +14,7 @@ import Test from "@/app/Test/page"; // Import AlertDialogDemo
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Particles from "@/components/ui/particles";
+import AnimatedCursor from "react-animated-cursor";
 
 export default function MainPage() {
   const addFeedback = (newFeedback: any) => {
@@ -31,7 +32,7 @@ export default function MainPage() {
 
   return (
     <ModalContextProvider>
-      {/*<AnimatedCursor
+      <AnimatedCursor
         innerSize={8}
         outerSize={35}
         innerScale={1}
@@ -43,7 +44,7 @@ export default function MainPage() {
         outerStyle={{
           border: "3px solid var(--cursor-color)",
         }}
-      />*/}
+      />
       <Particles
         className="fixed inset-0 h-screen w-full"
         quantity={100}

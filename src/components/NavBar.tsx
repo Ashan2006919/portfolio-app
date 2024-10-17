@@ -34,10 +34,7 @@ const DATA = {
     { name: "Feedback", href: "/#feedback", icon: FaComment },
     { name: "Contact", href: "/#contact", icon: FaEnvelope },
   ],
-  socialLinks: [
-    { name: "GitHub", href: "https://github.com", icon: FaGithub },
-    { name: "Email", href: "mailto:example@example.com", icon: FaEnvelope },
-  ],
+  socialLinks: [{ name: "GitHub", href: "https://github.com", icon: FaGithub }],
 };
 
 export default function NavBar() {

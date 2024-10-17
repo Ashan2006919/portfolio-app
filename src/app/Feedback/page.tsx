@@ -1,3 +1,5 @@
+"use client";
+
 import Marquee from "@/components/ui/marquee";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -153,12 +155,14 @@ const Feedback: React.FC = () => {
         </div>
         <div className="flex items-center space-x-4 bg-transparent">
           <FeedbackDialog />
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+          <Button
+            color="danger"
+            variant="shadow"
+            className="px-4 py-2 bg-red-500 text-white hover:bg-red-600"
             onClick={handleDeleteAllFeedback}
           >
             Delete All Feedback
-          </button>
+          </Button>
         </div>
       </motion.div>
     </div>
