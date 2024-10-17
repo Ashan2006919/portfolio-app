@@ -17,11 +17,8 @@ import AnimatedCursor from "react-animated-cursor";
 
 export default function MainPage() {
   const { theme } = useTheme();
-  const [color, setColor] = useState("#ffffff");
 
-  useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000");
-  }, [theme]);
+  useEffect(() => {}, [theme]);
 
   return (
     <ModalContextProvider>
