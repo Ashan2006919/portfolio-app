@@ -1,5 +1,6 @@
 // ProjectCard.jsx
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from "@nextui-org/react";
+import { Image } from "@nextui-org/image";
 
 interface ProjectCardProps {
   title: string;

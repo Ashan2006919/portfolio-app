@@ -14,6 +14,7 @@ import LinkedInicon from "@/public/icons/linkedin.png";
 import TikTokicon from "@/public/icons/tiktok.png";
 import GitHubicon from "@/public/icons/github.png";
 import BoxReveal from "@/components/ui/box-reveal";
+import { Button } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -58,13 +59,20 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <BoxReveal boxColor={"#f97316"} duration={0.75}>
-              <a
-                href="/path-to-your-resume.pdf"
-                className="inline-flex items-center justify-center w-full px-5 py-2 text-sm font-medium text-center text-white bg-orange-500 rounded-lg hover:bg-orange-600 hover:text-white focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              <Button
+                color="primary"
+                variant="shadow"
+                className="hover:bg-orange-500 shadow-md"
               >
-                <FaDownload className="w-4 h-4 mr-2" />
-                <div className="text-medium">Download Resume</div>
-              </a>
+                <a
+                  href="/path-to-your-resume.pdf"
+                  download
+                  className="inline-flex items-center justify-center w-full text-sm font-medium"
+                >
+                  <FaDownload className="w-4 h-4 mr-2" />
+                  <div>Download Resume</div>
+                </a>
+              </Button>
             </BoxReveal>
             <BoxReveal boxColor={"#f97316"} duration={0.75}>
               <ViewProject />

@@ -85,12 +85,12 @@ const Feedback: React.FC = () => {
         className="h-auto p-10 flex flex-col justify-center items-center gap-10 relative overflow-hidden"
       >
         <BoxReveal boxColor={"#f97316"} duration={0.75}>
-          <h2 className="mb-2 text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             Feedback of Others:
           </h2>
         </BoxReveal>
         <BoxReveal boxColor={"#f97316"} duration={0.75}>
-          <p className="font-light lg:text-lg">
+          <p className="font-semibold lg:text-lg text-gray-600 dark:text-gray-100">
             Here's what those who have worked with me are saying about their
             experience:
           </p>

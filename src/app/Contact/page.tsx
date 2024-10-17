@@ -170,7 +170,7 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-5 py-3 bg-input rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
+                className="w-full px-5 py-3 bg-background rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
                 placeholder="Your Name"
               />
               <Input
@@ -178,7 +178,7 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-5 py-3 bg-input rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
+                className="w-full px-5 py-3 bg-background rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
                 placeholder="Your Email"
               />
               <Input
@@ -186,20 +186,20 @@ export default function Contact() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-5 py-3 bg-input rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
+                className="w-full px-5 py-3 bg-background rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
                 placeholder="Your Phone"
               />
               <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-5 py-3 h-[130px] bg-input rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
+                className="w-full px-5 py-3 h-[130px] bg-background rounded-md border border-border text-foreground placeholder:text-placeholder focus:outline-none focus:border-accent"
                 placeholder="Your Message"
               />
             </div>
             <Button
               type="submit"
-              className="w-full py-3 mt-5 bg-orange-500 text-white rounded-md font-semibold hover:bg-orange-600 transition-all"
+              className="w-full py-5 mt-5 bg-orange-600 text-white rounded-md font-semibold hover:bg-orange-500 transition-all"
             >
               Send Message
             </Button>

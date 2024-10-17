@@ -56,7 +56,7 @@ export default function NavBar() {
       <TooltipProvider>
         <Dock
           direction="middle"
-          className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50 border-gray-300 dark:border-white"
+          className="fixed -top-6 left-1/2 transform -translate-x-1/2 z-50 border-gray-300 dark:border-white"
         >
           {/* Render navigation items */}
           {DATA.navigation.map((item) => (

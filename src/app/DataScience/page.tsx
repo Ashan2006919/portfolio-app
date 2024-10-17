@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import CoursesSection from "@/components/others/CoursesSection";
 import { Player } from "@lottiefiles/react-lottie-player";
 import animationData1 from "@/public/assets/Animations/success.json";
-import animationData2 from "@/public/assets/Animations/thriple-arrow.json";
+import animationData2 from "@/public/assets/Animations/right-arrow.json";
 import Image from "next/image";
 import Python from "@/public/Small-Icons/Python.svg";
 import MySQL from "@/public/Small-Icons/MySQL.svg";

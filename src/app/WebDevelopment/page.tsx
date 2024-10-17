@@ -35,7 +35,7 @@ export default function WebDevelopment() {
     <div className="h-auto min-h-screen p-5 flex flex-col md:flex-row justify-start items-center gap-10 md:gap-20 md:mt-0 lg:mt-20 sm:mt-12 sm:-mb-40 md:mb-0">
       {/* Left Section (Text and Data) */}
       <motion.div
-        className="grow shrink basis-0 flex-col justify-start items-start gap-8"
+        className="grow shrink basis-0 flex-col justify-start items-start gap-8 lg:ml-14"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -145,7 +145,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ label, skills }) => {
         src={animationData1}
         style={{ height: "40px", width: "40px" }} // Adjust size as needed
       />
-      <div className="text-slate-900 text-base sm:text-xl font-normal font-['Roboto'] leading-6 sm:leading-9">
+      <div className="text-slate-900 dark:text-gray-200 text-base sm:text-xl font-normal font-['Roboto'] leading-6 sm:leading-9">
         <span>{label}: </span>
         <span className="font-semibold text-orange-600">{skills}</span>
       </div>

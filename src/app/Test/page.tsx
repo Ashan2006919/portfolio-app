@@ -1,48 +1,21 @@
-"use client";
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
-import * as React from "react";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea"; // Ensure to import your Textarea component
-import { Button } from "@nextui-org/react";
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0 },
-};
-
-export default function ModeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [isVisible, setIsVisible] = React.useState(true);
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const handleChange = (e: { target: { name: any; value: any } }) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
-
+export default function App() {
   return (
-    <div>
-      <Button onClick={toggleTheme} className="mb-4">
-        {theme === "light" ? <MoonIcon /> : <SunIcon />}
-      </Button>
-    </div>
+    <Card className="py-4">
+      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+        <p className="text-tiny uppercase font-bold">Daily Mix</p>
+        <small className="text-default-500">12 Tracks</small>
+        <h4 className="font-bold text-large">Frontend Radio</h4>
+      </CardHeader>
+      <CardBody className="overflow-visible py-2">
+        <Image
+          alt="Card background"
+          className="object-cover rounded-t-xl relative z-10" // Ad
+          src="https://nextui.org/images/hero-card-complete.jpeg"
+          width={270}
+        />
+      </CardBody>
+    </Card>
   );
 }
