@@ -10,7 +10,7 @@ import Contact from "@/app/Contact/page";
 import Footer from "@/app/Footer/page";
 import DAProjects from "@/app/DAProjects/page";
 import WebProjects from "@/app/WebProjects/page";
-import Test from "@/app/Test/page"; // Import AlertDialogDemo
+//import Test from "@/app/Test/page";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
 import AnimatedCursor from "react-animated-cursor";
@@ -101,13 +101,13 @@ export default function MainPage() {
           >
             <Contact />
           </section>
-          {/* AlertDialogDemo for testing */}
+          {/* AlertDialogDemo for testing *
           <section
             id="test"
             className="min-h-screen scroll-snap-start bg-transparent"
           >
             <Test />
-          </section>
+          </section>/}
           {/* Footer Section */}
           <section id="footer" className="scroll-snap-start bg-transparent">
             <Footer />
