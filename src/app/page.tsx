@@ -13,16 +13,9 @@ import WebProjects from "@/app/WebProjects/page";
 import Test from "@/app/Test/page"; // Import AlertDialogDemo
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Particles from "@/components/ui/particles";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function MainPage() {
-  const addFeedback = (newFeedback: any) => {
-    // Implement the logic to handle the new feedback
-    console.log("New feedback received:", newFeedback);
-    // You can also store it in state if needed
-  };
-
   const { theme } = useTheme();
   const [color, setColor] = useState("#ffffff");
 
@@ -44,13 +37,6 @@ export default function MainPage() {
         outerStyle={{
           border: "3px solid var(--cursor-color)",
         }}
-      />
-      <Particles
-        className="fixed inset-0 h-screen w-full"
-        quantity={100}
-        ease={80}
-        color={color}
-        refresh
       />
       <main className="relative">
         <div className="relative z-10 scroll-snap-container scroll-smooth bg-gray-50 dark:bg-[#121212]">

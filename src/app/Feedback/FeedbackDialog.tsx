@@ -31,7 +31,9 @@ export default function FeedbackDialog() {
     rating: 0,
   });
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -103,7 +105,7 @@ export default function FeedbackDialog() {
             Write Review About Me:
           </DialogTitle>
           <DialogDescription className="text-muted-foreground">
-            Explain your experience with me and give a honest rating!
+            Explain your experience with me and give an honest rating!
           </DialogDescription>
         </DialogHeader>
 

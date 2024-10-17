@@ -7,7 +7,6 @@ import FeedbackCard from "@/components/others/FeedbackCard";
 import FeedbackSkeleton from "@/components/others/FeedbackSkeleton";
 import ErrorCard from "@/components/others/ErrorCard";
 import { Button } from "@nextui-org/react";
-import { useModal } from "@/components/others/ModalContext";
 import { motion } from "framer-motion";
 import BoxReveal from "@/components/ui/box-reveal";
 import { useInView } from "react-intersection-observer";
@@ -28,7 +27,6 @@ const Feedback: React.FC = () => {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const { openModal } = useModal();
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   const fetchFeedbacks = async () => {
@@ -94,7 +92,7 @@ const Feedback: React.FC = () => {
         </BoxReveal>
         <BoxReveal boxColor={"#f97316"} duration={0.75}>
           <p className="font-semibold lg:text-lg text-gray-600 dark:text-gray-100">
-            Here's what those who have worked with me are saying about their
+            Here&#39;s what those who have worked with me are saying about their
             experience:
           </p>
         </BoxReveal>

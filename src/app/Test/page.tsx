@@ -29,7 +29,9 @@ export default function Test() {
     rating: 0,
   });
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -75,7 +77,6 @@ export default function Test() {
         newFeedback
       );
       console.log("Feedback submitted:", response.data);
-      // Call addFeedback here if you have a function for updating feedback in state.
       setFormData({
         name: "",
         jobTitle: "",
@@ -97,11 +98,10 @@ export default function Test() {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
 
-        {/* Wrap the inputs in a form */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700">

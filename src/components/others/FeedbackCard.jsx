@@ -1,17 +1,8 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Avatar,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Avatar } from "@nextui-org/react";
 import { FaStar } from "react-icons/fa"; // Import star icon
 
 const FeedbackCard = ({ feedback }) => {
-  const [isFollowed, setIsFollowed] = React.useState(false); // Move useState here
-
   if (!feedback || typeof feedback !== "object") {
     return <p>No feedback available</p>;
   }
